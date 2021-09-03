@@ -67,6 +67,8 @@ void switchCheck();
 void bahirDarFun();
 void gondINFO();
 void gondarFun();
+void adminOUT();
+void reccom();
 void axumFun();
 void laliFun();
 void semienFun();
@@ -862,15 +864,27 @@ retABOVE:
 }
 void yourEntry()
 {
-	cout<<"Name"<<setw(10)<<"E-mail"<<setw(10)<<"departure date"<<setw(20)<<"returning date"<<setw(10)<<"Age"
-	<<setw(10)<<"Sex"<<setw(20)<<"transportation"<<setw(10)<<"Amount of room"<<setw(10)<<"Type of room";
+	 cout<<"ID number"<<setw(10)<<"Name"<<setw(10)<<"E-mail"<<setw(20)<<"departure\ndate"<<setw(20)<<"returning\ndate"<<setw(10)<<"Age"
+	<<setw(10)<<"Sex"<<setw(20)<<"transportation"<<setw(20)<<"Amount of\nroom"<<setw(10)<<"Type of\nroom"<<setw(10)<<"no_of\ntourist";
 	cout<<endl;
-       for(int i=0;i<1;i++)
+	if (check==1){
+	for(int i=0;i<1;i++)
        {
-       	cout<<bahir[0].name<<setw(10)<<bahir[0].email<<setw(10)<<bahir[0].date1.depDay<<"/"<<bahir[0].date1.depmm
-	      <<"/"<<bahir[0].date1.depyy<<setw(10)<<bahir[0].date1.retday<<"/"<<bahir[0].date1.retmm<<"/"<<bahir[0].date1.retyy
-	      <<setw(10)<<bahir[0].age<<setw(10)<<bahir[0].sex<<setw(10)<<bahir[0].Tranum<<setw(10)<<bahir[0].numOFroom<<setw(10)<<bahir[0].typeOfroom;
+       	cout<<"ATA 001"<<setw(10)<<bahir[0].name<<left<<setw(10)<<bahir[0].email<<left<<setw(10)<<bahir[0].date1.depDay<<"/"<<bahir[0].date1.depmm
+	      <<"/"<<bahir[0].date1.depyy<<left<<setw(10)<<bahir[0].date1.retday<<"/"<<bahir[0].date1.retmm<<"/"<<bahir[0].date1.retyy<<left
+	      <<setw(10)<<bahir[0].age<<left<<setw(10)<<bahir[0].sex<<left<<setw(10)<<bahir[0].Tranum<<left<<setw(10)<<bahir[0].numOFroom<<left<<setw(20)<<bahir[0].typeOfroom<<left<<setw(20)<<"1";
+	 cout<<endl;
 	 }
+	}
+	else {
+       for(int i=0;i<num;i++)
+       {
+       	cout<<bahir[i].name<<left<<setw(10)<<bahir[i].email<<left<<setw(10)<<bahir[i].date1.depDay<<"/"<<bahir[i].date1.depmm
+	      <<"/"<<bahir[i].date1.depyy<<left<<setw(10)<<bahir[i].date1.retday<<"/"<<bahir[i].date1.retmm<<"/"<<bahir[i].date1.retyy
+	      <<setw(10)<<bahir[i].age<<setw(20)<<bahir[i].sex<<setw(10)<<bahir[i].Tranum<<setw(10)<<bahir[i].numOFroom<<setw(10)<<bahir[i].typeOfroom;
+	 cout<<endl;
+	 }
+}
 }
 void sortData()
 {
@@ -969,4 +983,57 @@ cout<<"enter the amount of tourists: \n";
 					}
 cout<<endl;
 }
+}
+void adminOUT()
+{
+againENT:
+    cout<<"| ======== check these data =======  |\n";
+    cout<<"\n\t1. Search\n\t2. Add Places\n\t3. Update\n\t4. Delete\n\t5. tabular data\n\t6.sort\n\t0. Exit\n\n\tPress : ";
+    enter=getche();
+    switch(enter)
+    {
+    case '1':
+        system("CLS");
+        adminsearch();
+        break;
+    case '2':
+        system("CLS");
+        addPlace();
+        reccom();
+        newPlace();
+        break;
+    case '3':
+        system("CLS");
+        //update();
+        break;
+    case '4':
+        system("CLS");
+        //deleteData();
+        break;
+    case '5':
+        system("CLS");
+        //TabularData();
+        break;
+    case '6'
+           sortData();
+           break;
+    case '0':
+        exit(1);
+        return;
+    default :
+        system("CLS");
+        printf("Wrong entry !!\nTry again ..\n\n");
+        goto againENT;
+    }
+
+}
+
+void reccom()
+{
+     cout<<"\n  ======== Reccomended tours are : \n";
+     cout<<"1. Bahir Dar\n";
+     cout<<"2. Gondar\n";
+     cout<<"3. Axum\n";
+     cout<<"4. Lalibela\n";
+     cout<<"5. Semein mauntain\n";
 }
