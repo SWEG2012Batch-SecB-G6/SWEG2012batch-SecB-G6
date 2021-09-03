@@ -872,5 +872,5 @@ void yourEntry()
 }
 void  ticketCANB();
 {
-	cout <<edited
+
 }
