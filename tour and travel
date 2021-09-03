@@ -77,6 +77,9 @@ void  ticketRESofB();
 float  ticketcostB(calTOT);
 void  ticketCANB();
 void yourEntry();
+void adminsearch();
+void addPlace();
+void newPlace();
 void  update();
 void loadingBar();
  void paymentFUN();
@@ -1036,4 +1039,94 @@ void reccom()
      cout<<"3. Axum\n";
      cout<<"4. Lalibela\n";
      cout<<"5. Semein mauntain\n";
+}
+void adminsearch()
+{
+ re_enter: string choice;
+  cout<<"1.for individual data\n";
+  cout<<"2.for group \n";
+  cout<<"3.for family \n";
+  cout<<"4.go back\n";
+  enter=getche();
+  above:
+  switch(enter)
+  {case '1':
+  	fam_ent:
+    cout<<"\nenter your name :\n";
+  	cin>>choice;
+  	for(int i=0;i<num;i++){
+       if(bahir[i].name==choice)
+      {
+        cout<<"ID number"<<setw(10)<<"Name"<<setw(10)<<"E-mail"<<setw(20)<<"departure\ndate"<<setw(20)<<"returning\ndate"<<setw(10)<<"Age"
+	<<setw(10)<<"Sex"<<setw(20)<<"transportation"<<setw(20)<<"Amount of\nroom"<<setw(10)<<"Type of\nroom"<<setw(10)<<"no_of\ntourist";
+	cout<<endl;
+	if (check==1){
+       	cout<<"ATA"<<i+1<<setw(10)<<bahir[0].name<<left<<setw(10)<<bahir[0].email<<left<<setw(10)<<bahir[0].date1.depDay<<"/"<<bahir[0].date1.depmm
+	      <<"/"<<bahir[0].date1.depyy<<left<<setw(10)<<bahir[0].date1.retday<<"/"<<bahir[0].date1.retmm<<"/"<<bahir[0].date1.retyy<<left
+	      <<setw(10)<<bahir[0].age<<left<<setw(10)<<bahir[0].sex<<left<<setw(10)<<bahir[0].Tranum<<left<<setw(10)<<bahir[0].numOFroom<<left<<setw(20)<<bahir[0].typeOfroom<<left<<setw(20)<<"1";
+	    cout<<endl;
+	         }
+	else {
+       	cout<<"ATA"<<i+1<<bahir[i].name<<left<<setw(10)<<bahir[i].email<<left<<setw(10)<<bahir[i].date1.depDay<<"/"<<bahir[i].date1.depmm
+	      <<"/"<<bahir[i].date1.depyy<<left<<setw(10)<<bahir[i].date1.retday<<"/"<<bahir[i].date1.retmm<<"/"<<bahir[i].date1.retyy
+	      <<setw(10)<<bahir[i].age<<setw(20)<<bahir[i].sex<<setw(10)<<bahir[i].Tranum<<setw(10)<<bahir[i].numOFroom<<setw(10)<<bahir[i].typeOfroom;
+	 cout<<endl;
+	     }
+      }
+      if(i==num-1 && bahir[i].name!=choice)
+        {
+         	cout<<"\nthis name is not found\n\n\n";
+         	cout<<"1. menu\n";
+         	cout<<"2. try again\n";
+         	enter=getche();
+         	if(enter=='1')
+         	    goto re_enter;
+            else
+	          goto above;
+	       }
+      }
+      cout<<"1.back\n";
+      cout<<"2.exit\n";
+      enter=getche();
+      if(enter=='1')
+             re_enter
+       else if(enter=='2')
+           exit(0);
+	   break;
+   case '2':
+             goto fam_ent;
+              break;
+   case '3':
+   	         goto fam_ent;
+              break;
+   case '4':
+             adminOUT;
+             break;
+   default :
+   		cout<<"wrong entry , try again:\n";
+   		goto above;
+   		adminOUT();
+}
+}
+int n;
+string place[20];
+void addPlace()
+{
+	cout<<"how many palce have you add to the reccomended place\n";
+	cin>>n;
+	cout<<"enter name of place\n";
+	for(int i=0;i<n;i++)
+	{
+		cin.ignore();
+		getline(cin,place[i]);
+	}
+
+}
+void newPlace()
+{
+	for(int i=0;i<n;i++)
+	{
+		cout<<(i+6)<<". "<<place[i];
+		cout<<endl;
+	}
 }
