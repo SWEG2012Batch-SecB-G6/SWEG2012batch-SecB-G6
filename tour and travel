@@ -78,7 +78,8 @@ void yourEntry();
 void  update();
 void loadingBar();
  void paymentFUN();
- void sortData();
+ void sortData(); 
+void groupENTR();
 allData givenData={"Bahir Dar","Gondar","Axum","Lalibela","Semein mountain","Axum","Lalibela","Bahir Dar"};
 int main ()
 {
