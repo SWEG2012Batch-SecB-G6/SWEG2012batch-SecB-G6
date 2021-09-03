@@ -63,6 +63,7 @@ int checkAvail(allData);
 // prototyping functions : used to enter to the detail
 void adminlogin();
 void userlogin();
+void info_of_aastu();
 void switchCheck();
 void bahirDarFun();
 void gondINFO();
@@ -91,10 +92,9 @@ int main ()
     	cout<<"\n                         =========================================";
     	cout<<"\n         =============== WELLCOME TO AASTU TOUR AND TRAVEL AGENCY =================";
     	cout<<"\n                        ==========================================\n";
-    cout<<"1. Admin\n";
-    cout<<"2. User\n";
-    cout<<"E. Exit\n";
-    cout<<"press : ";
+    cout<<"/t press 1 for Admin page\n";
+    cout<<"press 2 for User page\n";
+    cout<<"press E to Exit the program\n";
     enter = getche();
     cout<<endl;
      system("pause");
@@ -102,19 +102,19 @@ int main ()
     switch(enter)
     {
     case '1':
-        system("CLS");
+        system("cls");
         adminlogin();
         break;
     case '2':
-        system("CLS");
+        system("cls");
         userlogin();
         break;
     case 'e':
-        system("CLS");
+        system("cls");
         exit(1);
         break;
     case 'E':
-        system("CLS");
+        system("cls");
         exit(1);
         break;
     }
@@ -129,10 +129,10 @@ void adminlogin()
     char admin[10], defAD[] = {"sectionB"};
 again:
     cout<<"\n\n\n";    
-    cout<<"              ||########  wellcome to my admin ######### ||\n";
+    cout<<"              ||########  wellcome to our admin page ######### ||\n";
     cout<<"Admin username : ";
     cin>>admin;
-    printf("password : ");
+    cout<<"password : "
     for(int i=0;i<9;i++)
     {   
         enter= getch();
@@ -164,18 +164,19 @@ again:
     }
     if(strcmp(defAD, admin)==0 && strcmp(defpass, password)==0)
     {
-        cout<<"\nSuccessfully Log in\n";
         system("pause");
         system("CLS");
-        //admin();
+	cout<<"\n login successful \n";
+        admin();
     }
     else
     {
     	   system("color 04");
-        cout<<"\nWrong try again !\n";
+        cout<<"\n    Incorrect username or incorrect password!\n";
         system("color 07\n");
         system("\npause");
         system("CLS");
+	cout<<"\t please enetr your username and password again "<<endl;
         goto again;
     }
 }
@@ -183,15 +184,15 @@ void userlogin()
 {
      returned :
      cout<<endl<<endl;
-     cout<<"          ================ AASTU tour and travel agency gives these tour services ============\n";
+     cout<<"          ================ AASTU tour and travel agency service page============\n";
      cout<<endl;
-     cout<<"           1. Reccomended tours : \n";
+     cout<<"           1. Our Reccomended tours : \n";
      cout<<"           2. Festival tours : \n";
      cout<<"           3. Tour packeges  : \n";
      cout<<"           4. others : \n";
-     cout<<"           #  Exit : \n";
+     cout<<"           #.  Exit : \n";
      //to  enter the above choices use this variable
-     cout<<"\n==== press : ";
+     cout<<"\n==== please enter the number or character of your choice ";
       enter=getche();cout<<endl;
      system("pause");
      system("cls");
@@ -201,20 +202,21 @@ void userlogin()
      switch(enter)
             {
                 case '1':
-            entAGAIN:      cout<<"\n  ======== Reccomended tours are : \n";
-                	         cout<<"1. Bahir Dar\n";
+            entAGAIN:      cout<<"\n  ========  Our Reccomended tours are : \n";
+                	   cout<<"1. Bahir Dar\n";
                            cout<<"2. Gondar\n";
                            cout<<"3. Axum\n";
                            cout<<"4. Lalibela\n";
                            cout<<"5. Semein mauntain\n";
                            cout<<"# back\n";
                            cout<<"$ Exit\n";
-                      cout<<"to check there availability press: ";
+                      cout<<"press the respective number to check there availability or press the respective character to go back or exit\n";
                                 retval=checkAvail(givenData);
                         if (retval==1)
                                {
-                               	 cout<<"\n1.back\n";
-                                     cout<<"2.to continue press there number\n";
+			         
+                               	 cout<<"\n press 1 to back\n";
+                                     cout<<"press 2 to continue \n";
                       retry:   enter=getche();
                                 switch(enter)
                                        {
@@ -224,16 +226,17 @@ void userlogin()
                                        	         break;
                                           case '2':
                                                    switchCheck();
+						   system("cls");
                                        	         break;
                                           default :
-                                          	 cout<<"wrong entry try again!!\n";
+                                          	 cout<<"wrong entry please insert the correct number!!\n";
                                                  goto retry;
 						   }
 					 }
                         else if(retval==0)
 		                {
 		                	
-				cout<<"\nif you want to back to main page press 1 to exit press 0\n";
+				cout<<"\n to back to main page press 1 \n to exit press 0\n";
 					//to exit or continue use this variables
 					 retry1:   enter=getche();
                                 switch(enter)
@@ -246,7 +249,7 @@ void userlogin()
                                           	   exit(0);
                                        	         break;
                                           default :
-                                          	 cout<<"wrong entry try again!!\n";
+                                          	 cout<<"wrong entry please insert the correct number!!\n";
                                                  goto retry1;
 						   }
 					}
@@ -258,7 +261,7 @@ void userlogin()
 			  	cout<<"package";
 			  	break;
 			  case '4':
-			  	cout<<"others";
+			  	info_of_aastu();
 			  	 break;
 			  case '#':
 			  	exit(0);
@@ -267,7 +270,7 @@ void userlogin()
 			         {
 			         	 system("color 04");
 			             cout<<"wrong entry\n";
-			             cout<<"try again\n";
+			             cout<<" please try again\n";
 				       system("color 07");
 				       goto entAGAIN;
 				        break;
@@ -287,22 +290,22 @@ void userlogin()
                		{
                		      if (strcmp(passedD.reccomend1,passedD.avail1)==0)
                		            {
-						      cout<<"Availaible";
+						      cout<<"Congradulations Your Tour is Availaible";
 							returnVAL= 1;
                                     }
                               else if(strcmp(passedD.reccomend1,passedD.avail2)==0)
      		                        {
-						cout<<"Availaible";
+						cout<<"Congradulations Your Tour is Availaible";
 						returnVAL= 1;
                                     }
      		                  else if(strcmp(passedD.reccomend1,passedD.avail3)==0)
      		                        {
-						cout<<"Availaible";
+						cout<<"Congradulations Your Tour is Availaible";
 						returnVAL= 1;
                                     }
      		                  else
      		                        {
-						cout<<"Not Availaible";
+						cout<<"Sorry But the tour is not Availaible right now";
 				            returnVAL= 0;
 						}
      		                        return returnVAL;
@@ -314,22 +317,22 @@ void userlogin()
                		     if (strcmp(passedD.reccomend2,passedD.avail1)==0)
                		            {
                                           returnVAL= 1;
-							cout<<"Availaible";
+							cout<<"Congradulations Your Tour is Availaible";
                                     }
      		                 else if(strcmp(passedD.reccomend2,passedD.avail2)==0)
      		                        {
 							returnVAL= 1;
-						      cout<<"Availaible";
+						      cout<<"Congradulations Your Tour is Availaible";
                                     }
      		                 else if(strcmp(passedD.reccomend2,passedD.avail3)==0)
      		                        {
 							returnVAL= 1;
-							cout<<"Availaible";
+							cout<<"Congradulations Your Tour is Availaible";
                                     }
      		                 else
      		                        {
      		                              returnVAL= 0;
-							cout<<"Not Availaible";
+							cout<<"Sorry but the tour is not Availaible right now";
 						}
 
      		                              return returnVAL;
@@ -341,75 +344,75 @@ void userlogin()
                		     if (strcmp(passedD.reccomend3,passedD.avail1)==0)
                		            {
 						   returnVAL= 1;
-						   cout<<"Availaible";
+						   cout<<"Congradulations Your Tour is Availaible";
                                     }
      		                 else if(strcmp(passedD.reccomend3,passedD.avail2)==0)
      		                        {
 						   returnVAL= 1;
-						   cout<<"Availaible";
+						   cout<<"Congradulations Your Tour is Availaible";
                                     }
      		                 else if(strcmp(passedD.reccomend3,passedD.avail3)==0)
      		                        {
 						   returnVAL= 1;
-						   cout<<"Availaible";
+						   cout<<"Congradulations Your Tour is Availaible";
                                     }
      		                 else
      		                        {
      		                           returnVAL= 0;
-						   cout<<"Not Availaible";
+						   cout<<"Sorry but the tour is not Availaible right now";
 						}
      		                           return returnVAL;
      		                           break;
 				}
-				case '4':
+			case '4':
                		{
 
                		     if (strcmp(passedD.reccomend4,passedD.avail1)==0)
                                     {
 						  returnVAL= 1;
-						  cout<<"Availaible";
+						  cout<<"Congradulations Your Tour is Availaible";
                                     }
      		                 else if(strcmp(passedD.reccomend4,passedD.avail2)==0)
      		                        {
 						  returnVAL= 1;
-						  cout<<"Availaible";
+						  cout<<"Congradulations Your Tour is Availaible";
                                     }
      		                 else if(strcmp(passedD.reccomend4,passedD.avail3)==0)
      		                        {
 						  returnVAL= 1;
-						  cout<<"Availaible";
+						  cout<<"Congradulations Your Tour is Availaible";
                                     }
      		                 else
      		                        {
 						  returnVAL= 0;
-						  cout<<"Not Availaible";
+						  cout<<"Soory but the tour is not Availaible right now";
                                     }
 
      		                          return returnVAL;
      		                          break;
 				}
-				case '5':
+			case '5':
                		{
 
                		    if (strcmp(passedD.reccomend5,passedD.avail1)==0)
                		            {
 			                    returnVAL= 1;
-						  cout<<"Availaible";
+						  cout<<"Congradulations Your Tour is Availaible";
                                     }
      		                else if(strcmp(passedD.reccomend5,passedD.avail2)==0)
      		                         {
      		                            returnVAL= 1;
-						    cout<<"Availaible";
+						    cout<<"Congradulations Your Tour is Availaible";
      		                         }
      		                else if(strcmp(passedD.reccomend5,passedD.avail3)==0)
      		                         {
 						    returnVAL= 1;
-						    cout<<"Availaible";
+						    cout<<"Congradulations Your Tour is Availaible";
                                      }
      		                else
      		                         {
 						    returnVAL= 0;
-						    cout<<"Not Availaible";
+						    cout<<"soory but the tour is not Availaible right now";
                                      }
 
      		                            return returnVAL;
@@ -423,7 +426,7 @@ void userlogin()
                      	       break;
                 	       default :
                 	       	  system("color 04");
-                	       	  cout<<"you entered wrong number ";
+                	       	  cout<<"you entered wrong number or character";
                 	       	  system("color 07");
                 	       	  cout<<"please enter again";
                 	       	  goto back;
@@ -432,7 +435,7 @@ void userlogin()
             }
 void switchCheck()
 {
-	cout<<"\nenter your tour choice again\n";
+	cout<<"\nplease enter your tour choice again\n";
         enter=getche();
 	switch(enter)
 	{
@@ -469,24 +472,18 @@ void bahirDarFun()
 {
 	if(retval==1)
                        {
-                       	cout<<"\nif you want to continue enter 1 to exit press 0\n";
-                      	   enter=getche();
-                     if (enter=='1')
-                       	         {
-           goto labelnum;
                 labelnum:system("cls");
-					      cout<<"\n 1. information about your tour\n";
-					      cout<<"\n 2. ticket reservation\n";
-					      cout<<"\n 3. Ticket Cancillation\n";
-					      cout<<"\n 4. update your entry data\n";
-					    }
-				     else
-				          exit(0);
-             cout<<"if you want to continue press the given number : "<<endl;
+					      cout<<"\n press 1 for information about the tour\n";
+					      cout<<"\n press 2 for ticket reservation\n";
+					      cout<<"\n press 3 for Ticket Cancillation\n";
+					      cout<<"\n press 4 for update your entry data\n";
+					      cout<<"\n press any key to go back to mainpage\n";
+					 
+             cout<<"please entre the number to which you want to procced : "<<endl;
                   enter=getche();
 			switch(enter)
 			         {
-				        case '1':
+			case '1':
 				        	{
 				        	    loadingBar();
                                     system("cls");
@@ -617,12 +614,16 @@ void bahirDarFun()
                                 exit(0);
                                 	     break;
 			         }
-			            case 3:
+			case 3:
               	                 ticketCANB();
               	                 break;
-                              case 4:
+			case 4:
      	              	  	     //update();
      	              	  	     break;
+			default:
+				userlogin();
+				system("cls");
+				break;
 		               }
 
 			     }
@@ -646,26 +647,26 @@ bahirDarFun();
 void BahiINFO()
 {
 	system("color 02");
-	cout<<"\nAmazing information about the tours of Bahir dar"
-           " Bahir Dar is a gateway to 37 ancient monasteries that have endured for"
+	cout<<"\n Information you have to know about Bahir dar"
+           "     Bahir Dar is a gateway to 37 ancient monasteries that have endured for"
            "centuries. These monasteries date back to the 16th and 17th centuries."
 	     "These monasteries are well structured and the interiors are designed with pictures of martyrs."
 	      "Ethiopians have a certain reverence for Christian martyrs and the walls of the monasteries tell"
 		"the stories of different Bible legends.  At each church, your local guide will"
 		"explain the significance of each of the images. To date, explorers and tourists alike"
 		"are still drawn by its romanticizing tales and flair."
-		"Visit Lake Tana"
-              "Located in the Northwestern Highlands of the Amhara region in Ethiopia, Lake Tana is the"
+		"                  Visit Lake Tana"
+              "   Located in the Northwestern Highlands of the Amhara region in Ethiopia, Lake Tana is the"
 		"largest Lake in Ethiopia and is the source of the Blue Nile. It is about 84 kilometers"
 		"long and stretches as wide as around 66 kilometers. Lake Tana's beauty is complemented by"
 		"its azure waters, lush shoreline and  birdlife variety. In 2015, The UNESCO Biosphere Reserve"
 		"recognized Lake Tana for its natural and cultural importance."
-            "Your trip will be incomplete without a visit to the Bahir Dar market. The market is busiest"
+            "     Your trip will be incomplete without a visit to the Bahir Dar market. The market is busiest"
 		"on Saturdays where people from nearby villages stream into the market to trade."
 		"Bahir Dar market is the most beautiful traditional market in all of Northern Ethiopia."
 		"Here you can buy different kinds of crops, crafts, spices, and souvenirs."
-          "Check Out the Blue Nile Falls"
-            "The Blue Nile falls is one of those fascinating places you don't want to "
+          "                        Check Out the Blue Nile Falls"
+            "   The Blue Nile falls is one of those fascinating places you don't want to "
 		"miss on your Bahir Dar trip. Known to locals as  'Tis Islat' which means 'smoky waters',"
 		"the waterfall is a 400 meter wide gush of the river during the rainy season plunging down over a 45 meter chasm."
 		 "This chasm sends a continuous shower as far as a kilometer away to drench awestruck onlookers."<<endl;
@@ -676,7 +677,7 @@ void BahiINFO()
               system("cls");
               system("color 07");
               if(enter==0)
-                 exit(0);
+                 userlogin();
               if(enter==1)
                  bahirDarFun();
              if(enter!=0 || enter!=1)
@@ -691,15 +692,15 @@ void BahiINFO()
 }
 void  ticketRESofB()
     {
-    	cout<<"===== WELLCOME TO TICKET RESERVATION ====\n";
-      cout<<"dear customer choose your choice from these packeges\n";
+    	cout<<"===== TICKET RESERVATION PAGE====\n";
+      cout<<"Dear customer please choose your choice from these packeges\n";
                 cout<<"1. For individual\n";
                 cout<<"2. For family\n";
                 cout<<"3. For group\n";
                  int num;
               cout<<"\nto terminate press 0\n";
-              cout<<"to return back press -1\n";
-              cout<<"if you want to continue enter there respective value: \n";
+              cout<<"to return back press #\n";
+              cout<<"please enter the respective values to continue: \n";
                int PACKNUM;
           reenter3:  cin>>PACKNUM;
         if (PACKNUM==1)
@@ -739,39 +740,39 @@ void  ticketRESofB()
 		            	      	 cin.ignore();
 		            	      	 goto ret1;
 					    }
-             		cout<<"enter your transportation way: enter 'plane' for plane 10000 birr,enter 'car' for car 9000 birr: \n";
+             		cout<<"enter your prefereance on mode of transport: enter 'plane' for plane 10000 birr,enter 'car' for car 9000 birr: \n";
              	cinB:	cin>>bahir[0].Tranum;
              		string s1="plane";string s2="car";
              		if((bahir[0].Tranum==s1) || (bahir[0].Tranum==s2));
 		            else 
 		                  {
-		                  	cout<<"wrong entry ,try again \n";
+		                  	cout<<"wrong entry , please try again \n";
 		                        goto cinB;
 					}
-             		cout<<"enter the amount of room wcich you reserve : \n";
+             		cout<<"enter the amount of room you want to reserve : \n";
              		cin>>bahir[0].numOFroom;
-             		cout<<"enter your room choice for single 'Single', for double 'Double' : \n";
+             		cout<<"what is your room choice?:\n 'Single' or 'Double' : \n";
    		       cinB2:  cin>>bahir[0].typeOfroom;
              		     string st1="single";string st2="double";
              	if((bahir[0].typeOfroom==st1) || (bahir[0].typeOfroom==st2));
 		            else 
 		                  {
-		                  	cout<<"wrong entry ,try again \n";
+		                  	cout<<"wrong entry ,please try again \n";
                                     goto cinB2;
 					}
 		 }
 		 else if(PACKNUM==2)
-                 cout<<"group";
+                 		groupENTR();
          else if(PACKNUM==3)
-                 cout<<"family";
-       else if(PACKNUM==0 || PACKNUM==-1)
+                 		groupENTR();
+       else if(PACKNUM==0 || PACKNUM==#)
                 {
                  loadingBar();
                  system("cls");
                  system("color 07");
                  if(PACKNUM==0)
-                    exit(0);
-                 if(PACKNUM==-1)
+                    userlogin();
+                 if(PACKNUM==#)
                     bahirDarFun();
                 }
         else
@@ -785,7 +786,7 @@ void  ticketRESofB()
                     }
 
     }
-// Function to creating loading bar
+// Function for creating a loading bar
 void loadingBar()
 {
     // 0 - black background,
@@ -925,6 +926,7 @@ void sortData()
 }
 void groupENTR()
 {
+system("cls");
 cout<<"enter the amount of tourists: \n";
 	cin>>num;
 	for(int i=0;i<num;i++){
@@ -964,24 +966,24 @@ cout<<"enter the amount of tourists: \n";
 		            	      	 cin.ignore();
 		            	      	 goto ret1;
 					    }
-             		cout<<"enter your transportation way: enter 'plane' for plane 10000 birr,enter 'car' for car 9000 birr: \n";
+             		cout<<"enter your prefered mode of transport: enter 'plane' for plane 10000 birr,enter 'car' for car 9000 birr: \n";
              	cinB:	cin>>bahir[i].Tranum;
              		string s1="plane";string s2="car";
              		if((bahir[i].Tranum==s1) || (bahir[i].Tranum==s2));
 		            else
 		                  {
-		                  	cout<<"wrong entry ,try again \n";
+		                  	cout<<"wrong entry ,please try again \n";
 		                        goto cinB;
 					}
-             		cout<<"enter the amount of room wcich you reserve : \n";
+             		cout<<"enter the amount of room you want to reserve : \n";
              		cin>>bahir[i].numOFroom;
-             		cout<<"enter your room choice for single 'Single', for double 'Double' : \n";
+             		cout<<"what type of room do you want?\n 'Single' or 'Double' : \n";
    		       cinB2:  cin>>bahir[i].typeOfroom;
              		     string st1="single";string st2="double";
              	if((bahir[i].typeOfroom==st1) || (bahir[i].typeOfroom==st2));
 		            else
 		                  {
-		                  	cout<<"wrong entry ,try again \n";
+		                  	cout<<"wrong entry ,please try again \n";
                                     goto cinB2;
 					}
 cout<<endl;
@@ -991,7 +993,7 @@ void adminOUT()
 {
 againENT:
     cout<<"| ======== check these data =======  |\n";
-    cout<<"\n\t1. Search\n\t2. Add Places\n\t3. Update\n\t4. Delete\n\t5. tabular data\n\t6.sort\n\t0. Exit\n\n\tPress : ";
+    cout<<"\n\t1. Search\n\t2. Add Places\n\t3. Update\n\t4. Delete\n\t5. tabular data\n\t6.sort\n\t0. Exit\n\n\tplease enter the respective number : ";
     enter=getche();
     switch(enter)
     {
@@ -1021,11 +1023,11 @@ againENT:
            sortData();
            break;
     case '0':
-        exit(1);
+        adminlogin();
         return;
     default :
         system("CLS");
-        printf("Wrong entry !!\nTry again ..\n\n");
+        printf("Wrong entry !!\nplease Try again ..\n\n");
         goto againENT;
     }
 
@@ -1043,10 +1045,10 @@ void reccom()
 void adminsearch()
 {
  re_enter: string choice;
-  cout<<"1.for individual data\n";
-  cout<<"2.for group \n";
-  cout<<"3.for family \n";
-  cout<<"4.go back\n";
+  cout<<"press 1 for individual entry data\n";
+  cout<<"press 2 for group entry data\n";
+  cout<<"press 3 for family entry data \n";
+  cout<<"press 4to go back\n";
   enter=getche();
   above:
   switch(enter)
@@ -1091,7 +1093,7 @@ void adminsearch()
       if(enter=='1')
              re_enter
        else if(enter=='2')
-           exit(0);
+           adminlogin();
 	   break;
    case '2':
              goto fam_ent;
