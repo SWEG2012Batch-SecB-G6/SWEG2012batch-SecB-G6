@@ -431,3 +431,358 @@ void userlogin()
                 	       	  break;
 			}
             }
+void switchCheck()
+{
+	cout<<"\nenter your tour choice again\n";
+        enter=getche();
+	switch(enter)
+	{
+		case '1':
+			bahirDarFun();
+			loadingBar();
+                   system("color 07");
+			break;
+            case '2':
+            	gondarFun();
+                  system("color 07");
+            	break;
+            case '3':
+            	axumFun();
+            	loadingBar();
+                  system("color 07");
+            	break;
+            case '4':
+            	  laliFun();
+            	  loadingBar();
+                  system("color 07");
+            	break;
+            case '5':
+            	  semienFun();
+            	  loadingBar();
+                  system("color 07");
+			break;
+	}
+}
+int check;
+void bahirDarFun()
+{
+	if(retval==1)
+                       {
+                       	cout<<"\nif you want to continue enter 1 to exit press 0\n";
+                      	   enter=getche();
+                     if (enter=='1')
+                       	         {
+                labelnum:system("cls");
+					      cout<<"\n 1. information about your tour\n";
+					      cout<<"\n 2. ticket reservation\n";
+					      cout<<"\n 3. Ticket Cancillation\n";
+					      cout<<"\n 4. update your entry data\n";
+					    }
+				     else
+				          exit(0);
+             cout<<"if you want to continue press the given number : "<<endl;
+                  enter=getche();
+			switch(enter)
+			         {
+				        case '1':
+				        	{
+				        	    loadingBar();
+                                    system("cls");
+                                    system("color 07");
+			        	     BahiINFO();
+                    reenter0:     cout<<"#. terminate\n";
+                                  cout<<"$. back \n";
+                                   enter=getche();
+                                  if(enter=='#')
+                                      exit(0);
+                                  if(enter=='$')
+                                    goto labelnum;
+                                  if(enter!='#' || enter!='$')
+                                  {cout<<"you entered wrong number\n";
+                                  cout<<" please enter again\n";
+                                   cin.clear();
+                                   cin.ignore();
+                                    goto reenter0;
+                                  }
+        	              	        break;
+                            }
+                        case '2':
+                            {
+                 	                 loadingBar();
+                                    system("cls");
+                                    system("color 07");
+        	              	     ticketRESofB();
+                    reenter:       cout<<"to terminate press 0\n";
+                                  cout<<"to return back press 1\n";
+                                  cout<<"to continue press # : \n";
+                                   enter=getche();
+                                if (enter=='0' || enter=='1')
+                                     if(enter==0)
+                                        exit(0);
+                                     if(enter==1)
+                                        goto labelnum;
+                        else if(enter=='#')
+                                {
+                                float returned;
+                                 returned=ticketcostB(tourTOT[20]);
+                                 loadingBar();
+                                 system("cls");
+                                  system("color 07");
+                                  cout<<"the total cost you cover is : \n";
+                                         cout<<returned<<" birr\n";
+                                }
+                        else
+                                  {cout<<"you entered wrong number\n";
+                                  cout<<"please enter again\n";
+                                     cin.clear();
+                                     cin.ignore();
+                                     goto reenter;
+                                  }
+                       reenter4:  cout<<"#. terminate\n";
+                                  cout<<"$. back\n";
+                                  cout<<"1. reserve the ticket \n";
+                                 enter=getche();
+                                if (enter=='#' || enter=='$')
+                                     if(enter=='#')
+                                        exit(0);
+                                     if(enter=='$')
+                                        goto labelnum;
+                        else if(enter=='1')
+                                {
+                                    loadingBar();
+                                  system("cls");
+                                  system("color 07");
+                                cout<<" seccessfully reserved \n";
+                                  cout<<"can you pay now?\n";
+                                  cout<<" 'y'   for    yes\n";
+                                  cout<<" 'n'   for     No\n";
+                        reenter6:      enter=getche();
+                                        switch(enter)
+                                        {
+                                        case 'y':
+                                        case 'Y':
+                                        	        loadingBar();
+                                                  system("cls");
+                                                  system("color 07");
+                                                 cout<<" 1. by online \n";
+                                                 cout<<" 2. by cash \n";
+                                                 cout<<" 3. Exit \n";
+                                                 cout<<"press there number\n";
+                                                 paymentFUN();
+                                                 break;
+                                        case 'n':
+                                        case 'N':
+                                                 break;
+                                        default:
+                                                      {
+                                                        cout<<"you entered wrong number\n";
+                                                         cout<<"please enter again\n";
+                                                         cin.clear();
+                                                          cin.ignore();
+                                                          goto reenter6;
+                                                     }
+                                                     break;
+                                        }
+                                }
+                        else
+                                  {cout<<"you entered wrong number\n";
+                                  cout<<"please enter again\n";
+                                     cin.clear();
+                                     cin.ignore();
+                                     goto reenter4;
+                                  }
+                                  cout<<"#. to terminate\n";
+                                  cout<<"$. continue\n";
+                    reenter5:    enter=getche();
+                                  if(enter=='#')
+                                      exit(0);
+                                  if(enter=='$')
+                                        goto totalm;
+                                  if(enter!='#' || enter!='$')
+                                  {cout<<"\nyou entered wrong number\n";
+                                  cout<<"please enter again\n";
+                                     cin.clear();
+                                     cin.ignore();
+                                      system("cls");
+                                     goto reenter5;
+                                  }
+           	        totalm: cout<<"\n #. to see your entry\n";
+           	               cout<<"\n $ to Exit\n";
+           	                     cin>>enter;
+     	                     if(enter=='#')
+     	                           yourEntry();
+                           else
+                                exit(0);
+                                main();
+                                	     break;
+			         }
+			            case 3:
+              	                 ticketCANB();
+              	                 break;
+                              case 4:
+     	              	  	     //update();
+     	              	  	     break;
+
+		               }
+
+			     }
+}
+void gondarFun()
+{
+ bahirDarFun();
+}
+void axumFun()
+{
+ bahirDarFun();
+}
+void laliFun()
+{
+   bahirDarFun();
+}
+void semienFun()
+{
+bahirDarFun();
+}
+void BahiINFO()
+{
+	system("color 02");
+	cout<<"\nAmazing information about the tours of Bahir dar"
+           " Bahir Dar is a gateway to 37 ancient monasteries that have endured for"
+           "centuries. These monasteries date back to the 16th and 17th centuries."
+	     "These monasteries are well structured and the interiors are designed with pictures of martyrs."
+	      "Ethiopians have a certain reverence for Christian martyrs and the walls of the monasteries tell"
+		"the stories of different Bible legends.  At each church, your local guide will"
+		"explain the significance of each of the images. To date, explorers and tourists alike"
+		"are still drawn by its romanticizing tales and flair."
+		"Visit Lake Tana"
+              "Located in the Northwestern Highlands of the Amhara region in Ethiopia, Lake Tana is the"
+		"largest Lake in Ethiopia and is the source of the Blue Nile. It is about 84 kilometers"
+		"long and stretches as wide as around 66 kilometers. Lake Tana's beauty is complemented by"
+		"its azure waters, lush shoreline and  birdlife variety. In 2015, The UNESCO Biosphere Reserve"
+		"recognized Lake Tana for its natural and cultural importance."
+            "Your trip will be incomplete without a visit to the Bahir Dar market. The market is busiest"
+		"on Saturdays where people from nearby villages stream into the market to trade."
+		"Bahir Dar market is the most beautiful traditional market in all of Northern Ethiopia."
+		"Here you can buy different kinds of crops, crafts, spices, and souvenirs."
+          "Check Out the Blue Nile Falls"
+            "The Blue Nile falls is one of those fascinating places you don't want to "
+		"miss on your Bahir Dar trip. Known to locals as  'Tis Islat' which means 'smoky waters',"
+		"the waterfall is a 400 meter wide gush of the river during the rainy season plunging down over a 45 meter chasm."
+		 "This chasm sends a continuous shower as far as a kilometer away to drench awestruck onlookers."<<endl;
+              cout<<"\nto terminate press 0\n";
+              cout<<"\nto return back press 1\n";
+ reenter2:    enter=getche();
+              loadingBar();
+              system("cls");
+              system("color 07");
+              if(enter==0)
+                 exit(0);
+              if(enter==1)
+                 bahirDarFun();
+             if(enter!=0 || enter!=1)
+                    {
+                        cout<<"you entered wrong number\n";
+                        cout<<"please enter again\n";
+                        cin.clear();
+                        cin.ignore();
+                            goto reenter2;
+
+                    }
+}
+void  ticketRESofB()
+    {
+    	cout<<"===== WELLCOME TO TICKET RESERVATION ====\n";
+      cout<<"dear customer choose your choice from these packeges\n";
+                cout<<"1. For individual\n";
+                cout<<"2. For family\n";
+                cout<<"3. For group\n";
+                 int num;
+              cout<<"\nto terminate press 0\n";
+              cout<<"to return back press -1\n";
+              cout<<"if you want to continue enter there respective value: \n";
+               int PACKNUM;
+          reenter3:  cin>>PACKNUM;
+        if (PACKNUM==1)
+             {
+             	check=1;
+             		cout<<"enter your name: \n";
+             		cin>>bahir[0].name;
+             		cout<<"enter your e-mail: \n";
+             		cin>>bahir[0].email;
+             		cout<<"enter your tour departure tour day: \n";
+             		cin>>bahir[0].date1.depDay;
+             		cout<<"enter your tour departure tour month: \n";
+             		cin>>bahir[0].date1.depmm;
+             		cout<<"enter your tour departure tour year: \n";
+             		cin>>bahir[0].date1.depyy;
+             		cout<<"enter your tour returning tour day: \n";
+             		cin>>bahir[0].date1.retday;
+             		cout<<"enter your tour returning tour month: \n";
+             		cin>>bahir[0].date1.retmm;
+             		cout<<"enter your tour returning tour year: \n";
+             		cin>>bahir[0].date1.retyy;
+             		cout<<"enter your age :\n";
+             		cin>>bahir[0].age;
+             		cout<<"enter your sex: \n";
+             	ret1:	cin>>bahir[0].sex;
+             		switch(bahir[0].sex)
+             		         {
+             		         	case 'm':
+           		         		case 'M':
+           		         			break;
+ 		         			case  'f':
+    				            case 'F':
+    				            	break;
+		            	      default :
+		            	      	 cout<<"you entered wrong data \n";
+		            	      	 cout<<"please try again \n";
+		            	      	 cin.clear();
+		            	      	 cin.ignore();
+		            	      	 goto ret1;
+					    }
+             		cout<<"enter your transportation way: enter 'plane' for plane 10000 birr,enter 'car' for car 9000 birr: \n";
+             	cinB:	cin>>bahir[0].Tranum;
+             		string s1="plane";string s2="car";
+             		if((bahir[0].Tranum==s1) || (bahir[0].Tranum==s2));
+		            else
+		                  {
+		                  	cout<<"wrong entry ,try again \n";
+		                        goto cinB;
+					}
+             		cout<<"enter the amount of room wcich you reserve : \n";
+             		cin>>bahir[0].numOFroom;
+             		cout<<"enter your room choice for single 'Single', for double 'Double' : \n";
+   		       cinB2:  cin>>bahir[0].typeOfroom;
+             		     string st1="single";string st2="double";
+             	if((bahir[0].typeOfroom==st1) || (bahir[0].typeOfroom==st2));
+		            else
+		                  {
+		                  	cout<<"wrong entry ,try again \n";
+                                    goto cinB2;
+					}
+		 }
+		 else if(PACKNUM==2)
+                 groupENTR();
+         else if(PACKNUM==3)
+                 groupENTR();
+       else if(PACKNUM==0 || PACKNUM==-1)
+                {
+                 loadingBar();
+                 system("cls");
+                 system("color 07");
+                 if(PACKNUM==0)
+                    exit(0);
+                 if(PACKNUM==-1)
+                    bahirDarFun();
+                }
+        else
+                    {
+                        cout<<"you entered wrong number\n";
+                        cout<<"please enter again\n";
+                        cin.clear();
+                        cin.ignore();
+                            goto reenter3;
+
+                    }
+
+    }
