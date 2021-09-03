@@ -1,73 +1,82 @@
 #include <iostream>
 #include <iomanip>
-
+#include <ios>
+#include <string.h>
 using namespace std;
-
     struct date{
-        int dd,mm,dd;
+        int dd,mm,yy;
     };
-
-struct Adress{
-
-};
 enum Room_type{
-    single room=1, Double room, Twin Room,king room, Tent}
+    single_room=1, Double_room, Twin_Room,king_room, Tent
 };
 
-string destinationToVIsit[5]={
-    "Northern hostoric route" , "eastern route", "weatern route", "south centeral route",
-    "northern and southern route"
-}
-
+struct destinationToVIsit{
+    string detinationTOUR[5]={"Northern hostoric route\n" , "eastern route\n", "western route\n", "south central route\n",
+    "northern and southern route\n"};
+    }dest;
 int price[5]={400,543,234,456,846};
 
     struct TouristInfo{
+        char Address[50];
         date Arrival_Date;
         date Depature_Date;
         int Number;
         int Touristumber;
         char Full_Name[45];
         char Email[50];
+        int NUM_of_room;
         int Phone_Number[10];
-        Room_type Room;
-    };
-
-makeYourOwn(){
-    TouristInfo TourSet;
+        string Room_type;
+    }TourSet[10];
+float discount(int);
+void Admin();
+void displayPackagedTour();
+void Booking();
+void PageLayout();
+int main(){
+    PageLayout();
     cout<<setw(10)<< "Design your own tour \n";
+    Booking();
+    int num;
+    cout<<"press: ";
+    cout<<"1. continue\n";
+    cout<<"2.exit(0)\n";
+    cin>>num;
+    switch(num)
+    {
+       case 1:
+           displayPackagedTour();
+           break;
+       case 2:
+           exit(0);
+    }
 }
-void NameAdderssOfVisitor(){
-cout<< "your full name: ";
-    cin.get(TourSet.Full_Name,45);
-    cout<< "Your Address: ";
-    cin.get(TourSet.Address, 50);
-    cout<< "Your phone number: ";
-  cin>> TourSet.Phone_Number[10];
-}
-
-
-Booking(){
-
-    cout<<"arrival date: ";
-    cin>> TourSet.Arrival_Date.dd,TourSet.Arrival_Date.mm,TourSet.Arrival_Date.yy;
-    cout<< "depature date: ";
-    cin>> TourSet.Depature_Date.dd, TourSet.Depature_Date.mm, TourSet.Depature_Date.yy;
+void Booking(){
     cout << "enter number visitors of  you are booking : ";
-cin>> TourSet.Touristumber;
-for (int i=0; i<TourSet.Touristumber; i++){
-      NameAdderssOfVisitor();
+    cin>> TourSet[0].Touristumber;
+    for(int i=0;i<5;i++)
+    cout<<dest.detinationTOUR[i];
+for (int i=0; i<TourSet[0].Touristumber; i++){
 cout<< "please enter information for "<< i+1<<"th traveler"<<endl;
-}
-
+cout<< "your full name: ";
+    cin.getline(TourSet[i].Full_Name,45);
+    cout<< "Your Address: ";
+    cin.getline(TourSet[i].Address, 50);
+    cout<< "Your phone number: ";
+  cin>> TourSet[i].Phone_Number[10];
     cout<< "your email: ";
-cin>> TourSet.Email;
-  cout<< "room type \n";
-cout<< "how many rooms/tents do you need"
-  room=single room;
+cin>> TourSet[i].Email;
+cout<< "how many rooms/tents do you need";
+cin>>TourSet[i].NUM_of_room;
+cout<<"please enter the type of room";
+int  room=single_room;
   for (int i=0; i<5; ++i){
-      cout<<i+1<< ". "<<room+i<< endl;
+      cout<<i+1<< ". ";
+      cin>>Room_type;
   }
+  cout<<"enter your tour choice\n";
   int choice;
+  tryA:cin>>choice;
 switch (choice){
 
 case '1':
@@ -86,10 +95,8 @@ case '1':
         cout<< "northern and southern route";
    break;
   cout<< "destinations to vist\n ";
-destinationToVIsit destination;
-destination=Northern historic route;
      for (int i=0; i<5; ++i){
-      cout<<i+1<< ". "<<destination+i<< ednl;
+      cout<<i+1<< ". "<<dest.detinationTOUR[i]<<endl;
      }
      cout<< "please choose your tour destination. "<< endl;
      cin>> choice;
@@ -103,10 +110,10 @@ case '1':
      cout<<"eastern route";
     break;
  case '3':
-     cout<< " weatern route";
+     cout<< " western route";
      break;
   case '4':
-      cout<< "south centeral route";
+      cout<< "south central route";
       break;
     case '5':
         cout<< "northern and southern route";
@@ -114,43 +121,82 @@ case '1':
     default:
         cout<< "enter correct choice";
      }
-  if (TourSet.Touristumber>1){
+  if (TourSet[i].Touristumber>1){
     cout<< "enjoy your discount! "<< endl;
   }
  cout<< "1. "<< "book now \n";
-      cout<< "enter '1' to book any key to go back \n";
-      cin>> TourSet.number;
-       if (TourSet.number==1){
+      cout<< "enter '1' to book '2' to go back \n";
+      cin>> TourSet[i].Number;
+       if (TourSet[i].Number==1){
           cout<< " Booked successfully!\n"<< "your reservation code will be sent soon\n";
-          int reservecode=int (phone_number*32)/100
-         cout<< "your reservation code is: "<< reserveCode<< endl;
-          cout<< "Thank you for choosing us\n";
+          int reservecode=(TourSet[i].Phone_Number[10]*32)/100;
+         cout<< "your reservation code is: "<< reservecode<< endl;
+          cout<< "Thank you for choosing us\n";}
+          else if(TourSet[i].Number==2)
+                  main();
           else{
             cout<<"you entered invalid number! "<< endl;
+          cout<<"please try again!\n";
+                 goto tryA;
           }
 }
+}
+  cout<<"arrival date: ";
+    cin>> TourSet[0].Arrival_Date.dd>>TourSet[0].Arrival_Date.mm>>TourSet[0].Arrival_Date.yy;
+    cout<< "depature date: ";
+    cin>>TourSet[0].Depature_Date.dd;cout<<",";cin>>TourSet[0].Depature_Date.mm;cout<<",";cin>>TourSet[0].Depature_Date.yy;
 
-
-float discount(float x){
-if(TourSet.Touristumber>1 && TourSet.Touristumber<4)
-    price=price+(price*5)/100;
-else if (TourSet.Touristumber>4)
-    price=price+(price*10)/100;
+}
+float discount(int x)
+{for(int i=0;i<5;i++)
+if(TourSet[i].Touristumber>5 && TourSet[i].Touristumber<10 && dest.detinationTOUR[i]=="Northern hostoric route")
+    {price[i]=price[i]+(price[i]*5)/100;
+    return price[i];}
+else if(TourSet[i].Touristumber>5 && TourSet[i].Touristumber<10 && dest.detinationTOUR[i]=="eastern route")
+    {price[i]=price[i]+(price[i]*5)/100;
+    return price[i];}
+else if(TourSet[i].Touristumber>5 && TourSet[i].Touristumber<10 && dest.detinationTOUR[i]=="western route")
+    {price[i]=price[i]+(price[i]*5)/100;
+    return price[i];}
+else if(TourSet[i].Touristumber>5 && TourSet[i].Touristumber<10 && dest.detinationTOUR[i]=="south central route")
+   {price[i]=price[i]+(price[i]*5)/100;
+    return price[i];}
+else if(TourSet[i].Touristumber>5 && TourSet[i].Touristumber<10 && dest.detinationTOUR[i]=="northern and southern route")
+    {price[i]=price[i]+(price[i]*5)/100;
+    return price[i];}
+else if(TourSet[i].Touristumber>=10 && dest.detinationTOUR[i]=="Northern hostoric route")
+    {price[i]=price[i]+(price[i]*10)/100;
+    return price[i];}
+else if(TourSet[i].Touristumber>=10 && dest.detinationTOUR[i]=="eastern route")
+    {price[i]=price[i]+(price[i]*10)/100;
+    return price[i];}
+else if(TourSet[i].Touristumber>=10 && dest.detinationTOUR[i]=="western route")
+    {price[i]=price[i]+(price[i]*10)/100;
+    return price[i];}
+else if(TourSet[i].Touristumber>=10 && dest.detinationTOUR[i]=="south central route")
+    {price[i]=price[i]+(price[i]*10)/100;
+    return price[i];}
+else if(TourSet[i].Touristumber>=10 && dest.detinationTOUR[i]=="northern and southern route")
+    {price[i]=price[i]+(price[i]*10)/100;
+    return price[i];}
 else
-    price=price;
+    {price[i]=price[i];
+    return price[i];}
 }
 
-int displayPackagedTour(){
+void displayPackagedTour(){
 for (int i=0; i<5; i++){
-    cout<< "\t$" <<destinationToVIsit[i]<< setfill('==') << setw(2)<<price[i] << "$" << endl;
+        float returnedValue;
+        returnedValue=discount(TourSet[i].Touristumber);
+    cout<< "\t$" <<dest.detinationTOUR[i]<<"=" << setw(2)<<returnedValue<< "$" << endl;
 }
-
+}
 void Admin(){
 
-
+cout<<"heloo"<<endl;
 }
 
-void AdminWelcomeScreen(){
+void PageLayout(){
     cout << endl;
     cout << "\t$" << setfill('*') << setw(50) << "$" << endl;
     cout << "\t$" << setfill(' ') << setw(50) << "$" << endl;
@@ -161,7 +207,7 @@ void AdminWelcomeScreen(){
     cout << "\t$" << setfill(' ') << setw(45) << "Please Select One of the Following Options" << setfill(' ') << setw(5) << "$" << endl;
     cout << "\t$" << setfill(' ') << setw(50) << "$" << endl;
     cout << "\t$" << setfill(' ') << setw(32) << "1. Add destinatins" << setfill(' ') << setw(18) << "$" << endl;
-    cout << "\t$" << setfill(' ') << setw(33) << "2. edit/delete destinations and destination informations" << setfill(' ') << setw(17) << "$" << endl;
+    cout << "\t$" << setfill(' ') << setw(33) << "2. edit/delete destinations and \n\t       destination informations" << setfill(' ') << setw(17) << "$" << endl;
     cout << "\t$" << setfill(' ') << setw(33) << "3. edit tour cost calculator" << setfill(' ') << setw(17) << "$" << endl;
     cout << "\t$" << setfill(' ') << setw(24) << "4. Settings" << setfill(' ') << setw(26) << "$" << endl;
     cout << "\t$" << setfill(' ') << setw(25) << "5. Quit/Exit" << setfill(' ') << setw(25) << "$" << endl;
