@@ -60,7 +60,7 @@ struct bahiTEchres
 	char enter;
 	//used to check availability of tour
 int checkAvail(allData);
-// used to enter to the detail
+// prototyping functions : used to enter to the detail
 void adminlogin();
 void userlogin();
 void switchCheck();
@@ -78,6 +78,7 @@ void yourEntry();
 void  update();
 void loadingBar();
  void paymentFUN();
+ void sortData();
 allData givenData={"Bahir Dar","Gondar","Axum","Lalibela","Semein mountain","Axum","Lalibela","Bahir Dar"};
 int main ()
 {
@@ -870,7 +871,37 @@ void yourEntry()
 	      <<setw(10)<<bahir[0].age<<setw(10)<<bahir[0].sex<<setw(10)<<bahir[0].Tranum<<setw(10)<<bahir[0].numOFroom<<setw(10)<<bahir[0].typeOfroom;
 	 }
 }
-void  ticketCANB();
+void sortData()
 {
-
+    for (int i=0; i<4; i++)
+    {
+        for (int j=i+1; j<5; j++)
+        {
+            if (bahir[i].date1.depmm > bahir[i].date1.depyy)
+            {
+                bahiTEchres temp = bahir[i].date1[i];
+                bahir[i].date1[i] = bahir[i].date1[j];
+                bahir[i].date1[j] = temp;
+            }
+            else if (bahir[i].date1.depyy == bahir[i].date1.depyy && bahir[i].date1.depmm > bahir[i].date1.depmm)
+            {
+                bahiTEchres temp = bahir[i].date1[i];
+                bahir[i].date1[i] = bahir[i].date1[j];
+                bahir[i].date1[j] = temp;
+            }
+            else if (bahir[i].date1.depyy == bahir[i].date1.depyy && bahir[i].date1.depmm == bahir[i].date1.depmm && bahir[i].date1.depDay > input[j].depDay)
+            {
+                bahiTEchres temp = bahir[i].date1[i];
+                bahir[i].date1[i] = bahir[i].date1[j];
+                bahir[i].date1[j] = temp;
+            }
+  
+        }
+    }
+  
+  
+    for(int i=0; i<5; i++)
+    {
+        yourEntry();
+    }
 }
