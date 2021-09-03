@@ -905,3 +905,67 @@ void sortData()
         yourEntry();
     }
 }
+void groupENTR()
+{
+cout<<"enter the amount of tourists: \n";
+	cin>>num;
+	for(int i=0;i<num;i++){
+
+             		cout<<"enter your name: \n";
+             		cin>>bahir[i].name;
+             		cout<<"enter your e-mail: \n";
+             		cin>>bahir[i].email;
+             		cout<<"enter your tour departure tour day: \n";
+             		cin>>bahir[i].date1.depDay;
+             		cout<<"enter your tour departure tour month: \n";
+             		cin>>bahir[i].date1.depmm;
+             		cout<<"enter your tour departure tour year: \n";
+             		cin>>bahir[i].date1.depyy;
+             		cout<<"enter your tour returning tour day: \n";
+             		cin>>bahir[i].date1.retday;
+             		cout<<"enter your tour returning tour month: \n";
+             		cin>>bahir[i].date1.retmm;
+             		cout<<"enter your tour returning tour year: \n";
+             		cin>>bahir[i].date1.retyy;
+             		cout<<"enter your age :\n";
+             		cin>>bahir[i].age;
+             		cout<<"enter your sex: \n";
+             	ret1:	cin>>bahir[i].sex;
+             		switch(bahir[i].sex)
+             		         {
+             		         	case 'm':
+           		         		case 'M':
+           		         			break;
+ 		         			case  'f':
+    				            case 'F':
+    				            	break;
+		            	      default :
+		            	      	 cout<<"you entered wrong data \n";
+		            	      	 cout<<"please try again \n";
+		            	      	 cin.clear();
+		            	      	 cin.ignore();
+		            	      	 goto ret1;
+					    }
+             		cout<<"enter your transportation way: enter 'plane' for plane 10000 birr,enter 'car' for car 9000 birr: \n";
+             	cinB:	cin>>bahir[i].Tranum;
+             		string s1="plane";string s2="car";
+             		if((bahir[i].Tranum==s1) || (bahir[i].Tranum==s2));
+		            else
+		                  {
+		                  	cout<<"wrong entry ,try again \n";
+		                        goto cinB;
+					}
+             		cout<<"enter the amount of room wcich you reserve : \n";
+             		cin>>bahir[i].numOFroom;
+             		cout<<"enter your room choice for single 'Single', for double 'Double' : \n";
+   		       cinB2:  cin>>bahir[i].typeOfroom;
+             		     string st1="single";string st2="double";
+             	if((bahir[i].typeOfroom==st1) || (bahir[i].typeOfroom==st2));
+		            else
+		                  {
+		                  	cout<<"wrong entry ,try again \n";
+                                    goto cinB2;
+					}
+cout<<endl;
+}
+}
