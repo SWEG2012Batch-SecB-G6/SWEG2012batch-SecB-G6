@@ -35,6 +35,8 @@ struct date
 		int retday;
 		int retmm;
 		int retyy;
+		int DATEchecker;
+		int DATEcheckerRE;
 }date1;
 struct payPal
 {
@@ -967,4 +969,21 @@ void newPlace()
 		cout<<(i+6)<<". "<<place[i];
 		cout<<endl;
 	}
+}
+int num;
+int checkDATE(int day, int month, int year)
+{
+   if(year>=2013 && year<=9999){
+      if(month>=1 && month<=13){
+         if((day>=1 && day<=30) && (month>=1 && month<=12));
+            else if((day>=1 && day<=6) || (day>=1 && day<=5) && (month==13))
+                      return 1;
+                      else
+                       return 0;
+            } else{
+            return 0;
+         }
+      } else {
+      return 0;
+   }
 }
