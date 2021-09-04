@@ -808,194 +808,163 @@ void  ticketRESofB()
                     }
 
     }
-int num;
-void groupENTR()
+// Function to creating loading bar
+void loadingBar()
 {
-cout<<"enter the amount of tourists: \n";
-	cin>>num;
-	for(int i=0;i<num;i++){
+    // 0 - black background,
+    // A - Green Foreground
+        system("color 0A");
+    // Initialize char for printing
+    // loading bar
+    char a = 177, b = 219;
 
-             		cout<<"enter your name: \n";
-             		cin>>bahir[i].name;
-             		cout<<"enter your e-mail: \n";
-             		cin>>bahir[i].email;
-             		cout<<"enter your tour departure tour day: \n";
-             		cin>>bahir[i].date1.depDay;
-             		cout<<"enter your tour departure tour month: \n";
-             		cin>>bahir[i].date1.depmm;
-             		cout<<"enter your tour departure tour year: \n";
-             		cin>>bahir[i].date1.depyy;
-             		cout<<"enter your tour returning tour day: \n";
-             		cin>>bahir[i].date1.retday;
-             		cout<<"enter your tour returning tour month: \n";
-             		cin>>bahir[i].date1.retmm;
-             		cout<<"enter your tour returning tour year: \n";
-             		cin>>bahir[i].date1.retyy;
-             		cout<<"enter your age :\n";
-             		cin>>bahir[i].age;
-             		cout<<"enter your sex: \n";
-             	ret1:	cin>>bahir[i].sex;
-             		switch(bahir[i].sex)
-             		         {
-             		         	case 'm':
-           		         		case 'M':
-           		         			break;
- 		         			case  'f':
-    				            case 'F':
-    				            	break;
-		            	      default :
-		            	      	 cout<<"you entered wrong data \n";
-		            	      	 cout<<"please try again \n";
-		            	      	 cin.clear();
-		            	      	 cin.ignore();
-		            	      	 goto ret1;
-					    }
-             		cout<<"enter your transportation way: enter 'plane' for plane 10000 birr,enter 'car' for car 9000 birr: \n";
-             	cinB:	cin>>bahir[i].Tranum;
-             		string s1="plane";string s2="car";
-             		if((bahir[i].Tranum==s1) || (bahir[i].Tranum==s2));
-		            else
-		                  {
-		                  	cout<<"wrong entry ,try again \n";
-		                        goto cinB;
-					}
-             		cout<<"enter the amount of room wcich you reserve : \n";
-             		cin>>bahir[i].numOFroom;
-             		cout<<"enter your room choice for single 'Single', for double 'Double' : \n";
-   		       cinB2:  cin>>bahir[i].typeOfroom;
-             		     string st1="single";string st2="double";
-             	if((bahir[i].typeOfroom==st1) || (bahir[i].typeOfroom==st2));
-		            else
-		                  {
-		                  	cout<<"wrong entry ,try again \n";
-                                    goto cinB2;
-					}
-cout<<endl;
+    cout<<"\n\n\n\n";
+    cout<<"\n\n\n\n\t\t\t\t\t";
+    cout<<" Loading...\n\n";
+    cout<<"\t\t\t\t\t";
+
+    // Print initial loading bar
+    for (int i = 0; i < 26; i++)
+        cout<<a;
+
+    // Set the cursor again starting
+    // point of loading bar
+    cout<<"\r";
+    cout<<"\t\t\t\t\t";
+
+    // Print loading bar progress
+    for (int i = 0; i < 26; i++) {
+        cout<<b;
+
+        // Sleep for 1 second
+        Sleep(50);
+    }
 }
-}
-void yourEntry()
+float  ticketcostB(calTOT calc)
 {
-	 cout<<"ID number"<<setw(10)<<"Name"<<setw(10)<<"E-mail"<<setw(20)<<"departure\ndate"<<setw(20)<<"returning\ndate"<<setw(10)<<"Age"
-	<<setw(10)<<"Sex"<<setw(20)<<"transportation"<<setw(20)<<"Amount of\nroom"<<setw(10)<<"Type of\nroom"<<setw(10)<<"no_of\ntourist";
-	cout<<endl;
-	if (check==1){
-	for(int i=0;i<1;i++)
-       {
-       	cout<<"ATA 001"<<setw(10)<<bahir[0].name<<left<<setw(10)<<bahir[0].email<<left<<setw(10)<<bahir[0].date1.depDay<<"/"<<bahir[0].date1.depmm
-	      <<"/"<<bahir[0].date1.depyy<<left<<setw(10)<<bahir[0].date1.retday<<"/"<<bahir[0].date1.retmm<<"/"<<bahir[0].date1.retyy<<left
-	      <<setw(10)<<bahir[0].age<<left<<setw(10)<<bahir[0].sex<<left<<setw(10)<<bahir[0].Tranum<<left<<setw(10)<<bahir[0].numOFroom<<left<<setw(20)<<bahir[0].typeOfroom<<left<<setw(20)<<"1";
-	 cout<<endl;
-	 }
-	}
-	else {
-       for(int i=0;i<num;i++)
-       {
-       	cout<<bahir[i].name<<left<<setw(10)<<bahir[i].email<<left<<setw(10)<<bahir[i].date1.depDay<<"/"<<bahir[i].date1.depmm
-	      <<"/"<<bahir[i].date1.depyy<<left<<setw(10)<<bahir[i].date1.retday<<"/"<<bahir[i].date1.retmm<<"/"<<bahir[i].date1.retyy
-	      <<setw(10)<<bahir[i].age<<setw(20)<<bahir[i].sex<<setw(10)<<bahir[i].Tranum<<setw(10)<<bahir[i].numOFroom<<setw(10)<<bahir[i].typeOfroom;
-	 cout<<endl;
-	 }
+        float total1,total,total2;
+    	cout<<"\nenter the distance of the tour cover: \n";
+    	cin>>tourTOT[0].distance;
+    	cout<<"enter the over all amount of the hotel coverage : \n";
+        cin>>tourTOT[0].hotel_usage;
+	    cout<<"enter the overall touring cost : \n";
+	    cin>>tourTOT[0].tourCost;
+	    cout<<"enter the transport cost : \n";
+	    cin>>tourTOT[0].tranCOST;
+        total1=tourTOT[0].distance*tourTOT[0].tranCOST;
+        total2=tourTOT[0].hotel_usage+tourTOT[0].tourCost;
+        total=total1+total2;
+        return total;
 }
-}
-void adminsearch()
+void paymentFUN()
 {
- re_enter: string choice;
-  cout<<"1.for individual data\n";
-  cout<<"2.for group \n";
-  cout<<"3.for family \n";
-  cout<<"4.go back\n";
-  enter=getche();
-  above:
-  switch(enter)
-  {case '1':
-  	fam_ent:
-    cout<<"\nenter your name :\n";
-  	cin>>choice;
-  	for(int i=0;i<num;i++){
-       if(bahir[i].name==choice)
-      {
-        cout<<"ID number"<<setw(10)<<"Name"<<setw(10)<<"E-mail"<<setw(20)<<"departure\ndate"<<setw(20)<<"returning\ndate"<<setw(10)<<"Age"
-	<<setw(10)<<"Sex"<<setw(20)<<"transportation"<<setw(20)<<"Amount of\nroom"<<setw(10)<<"Type of\nroom"<<setw(10)<<"no_of\ntourist";
-	cout<<endl;
-	if (check==1){
-       	cout<<"ATA"<<i+1<<setw(10)<<bahir[0].name<<left<<setw(10)<<bahir[0].email<<left<<setw(10)<<bahir[0].date1.depDay<<"/"<<bahir[0].date1.depmm
-	      <<"/"<<bahir[0].date1.depyy<<left<<setw(10)<<bahir[0].date1.retday<<"/"<<bahir[0].date1.retmm<<"/"<<bahir[0].date1.retyy<<left
-	      <<setw(10)<<bahir[0].age<<left<<setw(10)<<bahir[0].sex<<left<<setw(10)<<bahir[0].Tranum<<left<<setw(10)<<bahir[0].numOFroom<<left<<setw(20)<<bahir[0].typeOfroom<<left<<setw(20)<<"1";
-	    cout<<endl;
-	         }
-	else {
-       	cout<<"ATA"<<i+1<<bahir[i].name<<left<<setw(10)<<bahir[i].email<<left<<setw(10)<<bahir[i].date1.depDay<<"/"<<bahir[i].date1.depmm
-	      <<"/"<<bahir[i].date1.depyy<<left<<setw(10)<<bahir[i].date1.retday<<"/"<<bahir[i].date1.retmm<<"/"<<bahir[i].date1.retyy
-	      <<setw(10)<<bahir[i].age<<setw(20)<<bahir[i].sex<<setw(10)<<bahir[i].Tranum<<setw(10)<<bahir[i].numOFroom<<setw(10)<<bahir[i].typeOfroom;
-	 cout<<endl;
+	int choicenum;
+retABOVE:
+	cin>>choicenum;
+ if(choicenum==1)
+	 {
+	 	cout<<"enter your name: \n";
+	 	cin>>PAYPAL[0].name;
+	 	cout<<"enter your address: \n";
+	 	cin>>PAYPAL[0].address;
+	 	cout<<"enter your e-mail: \n";
+	 	cin>>PAYPAL[0].email;
+	 	cout<<"enter your password: \n";
+	 	cin>>PAYPAL[0].password;
+	 	cout<<"thanks you finished your task\n";
+	 }
+  else if(choicenum==2)
+            cout<<"you can use 100009387498 CBE bank account: \n";
+  else if(choicenum==3)
+           {
+           	  exit(0);
 	     }
-      }
-      if(i==num-1 && bahir[i].name!=choice)
-        {
-         	cout<<"\nthis name is not found\n\n\n";
-         	cout<<"1. menu\n";
-         	cout<<"2. try again\n";
-         	enter=getche();
-         	if(enter=='1')
-         	    goto re_enter;
-            else
-	          goto above;
-	       }
-      }
-      cout<<"1.back\n";
-      cout<<"2.exit\n";
-      enter=getche();
-      if(enter=='1')
-           goto re_enter;
-       else if(enter=='2')
-           exit(0);
-	   break;
-   case '2':
-             goto fam_ent;
-              break;
-   case '3':
-   	         goto fam_ent;
-              break;
-   case '4':
-             adminOUT;
-             break;
-   default :
-   		cout<<"wrong entry , try again:\n";
-   		goto above;
-   		adminOUT();
+  else
+                {
+				     cout<<"you entered wrong number\n";
+                             cout<<"please enter again\n";
+                             cin.clear();
+                             cin.ignore();
+                             goto retABOVE;
+		      }
 }
-}
-void sortData()
+
+void  ticketCANB()
 {
-    for (int i=0; i<4; i++)
+	cout<<"hello";
+}
+void adminOUT()
+{
+againENT:
+    cout<<"| ======== check these data =======  |\n";
+    cout<<"\n\t1. Search\n\t2. Add Places\n\t3. Update\n\t4. Delete\n\t5. tabular data\n\t6.sort\n\t0. Exit\n\n\tPress : ";
+    enter=getche();
+    switch(enter)
     {
-        for (int j=i+1; j<5; j++)
-        {
-            if (bahir[i].date1.depmm > bahir[i].date1.depyy)
-            {
-                bahiTEchres temp = bahir[i].date1[i];
-                bahir[i].date1[i] = bahir[i].date1[j];
-                bahir[i].date1[j] = temp;
-            }
-            else if (bahir[i].date1.depyy == bahir[i].date1.depyy && bahir[i].date1.depmm > bahir[i].date1.depmm)
-            {
-                bahiTEchres temp = bahir[i].date1[i];
-                bahir[i].date1[i] = bahir[i].date1[j];
-                bahir[i].date1[j] = temp;
-            }
-            else if (bahir[i].date1.depyy == bahir[i].date1.depyy && bahir[i].date1.depmm == bahir[i].date1.depmm && bahir[i].date1.depDay > input[j].depDay)
-            {
-                bahiTEchres temp = bahir[i].date1[i];
-                bahir[i].date1[i] = bahir[i].date1[j];
-                bahir[i].date1[j] = temp;
-            }
-
-        }
+    case '1':
+        system("CLS");
+        adminsearch();
+        break;
+    case '2':
+        system("CLS");
+        addPlace();
+        reccom();
+        newPlace();
+        break;
+    case '3':
+        system("CLS");
+        //update();
+        break;
+    case '4':
+        system("CLS");
+        //deleteData();
+        break;
+    case '5':
+        system("CLS");
+        //TabularData();
+        break;
+    case '6':
+           sortData();
+           break;
+    case '0':
+        exit(1);
+        return;
+    default :
+        system("CLS");
+        printf("Wrong entry !!\nTry again ..\n\n");
+        goto againENT;
     }
 
+}
 
-    for(int i=0; i<5; i++)
-    {
-        yourEntry();
-    }
+void reccom()
+{
+     cout<<"\n  ======== Reccomended tours are : \n";
+     cout<<"1. Bahir Dar\n";
+     cout<<"2. Gondar\n";
+     cout<<"3. Axum\n";
+     cout<<"4. Lalibela\n";
+     cout<<"5. Semein mauntain\n";
+}
+int n;
+string place[20];
+void addPlace()
+{
+	cout<<"how many palce have you add to the reccomended place\n";
+	cin>>n;
+	cout<<"enter name of place\n";
+	for(int i=0;i<n;i++)
+	{
+		cin.ignore();
+		getline(cin,place[i]);
+	}
+
+}
+void newPlace()
+{
+	for(int i=0;i<n;i++)
+	{
+		cout<<(i+6)<<". "<<place[i];
+		cout<<endl;
+	}
 }
