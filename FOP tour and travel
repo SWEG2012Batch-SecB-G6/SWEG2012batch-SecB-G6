@@ -733,19 +733,31 @@ void  ticketRESofB()
              		cin>>bahir[0].name;
              		cout<<"enter your e-mail: \n";
              		cin>>bahir[0].email;
-             		cout<<"enter your tour departure tour day: \n";
+             DEpcheck1: cout<<"enter your tour departure tour day: \n";
              		cin>>bahir[0].date1.depDay;
              		cout<<"enter your tour departure tour month: \n";
              		cin>>bahir[0].date1.depmm;
              		cout<<"enter your tour departure tour year: \n";
              		cin>>bahir[0].date1.depyy;
-             		cout<<"enter your tour returning tour day: \n";
+             retcheck1: cout<<"enter your tour returning tour day: \n";
              		cin>>bahir[0].date1.retday;
              		cout<<"enter your tour returning tour month: \n";
              		cin>>bahir[0].date1.retmm;
              		cout<<"enter your tour returning tour year: \n";
              		cin>>bahir[0].date1.retyy;
-             		cout<<"enter your age :\n";
+			bahir[i].date1.DATEchecker=checkDATE(bahir[i].date1.depDay,bahir[i].date1.depmm,bahir[i].date1.depyy);
+             		bahir[i].date1.DATEcheckerRE=checkDATE(bahir[i].date1.retday,bahir[i].date1.retmm,bahir[i].date1.retyy);
+             		if(bahir[i].date1.DATEchecker==0){
+                           cout<<"you entered invalid value\nplease try again:\n";
+                           goto DEpcheck1;}
+                        else
+                          goto Below;
+                       if(bahir[i].date1.DATEcheckerRE==0){
+                           cout<<"you entered invalid value\nplease try again:\n";
+                           goto retcheck1;}
+                       else
+                          goto Below;
+             	Below:  cout<<"enter your age :\n";
              		cin>>bahir[0].age;
              		cout<<"enter your sex: \n";
              	ret1:	cin>>bahir[0].sex;
