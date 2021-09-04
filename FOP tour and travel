@@ -59,9 +59,8 @@ struct bahiTEchres
 	//this variable is used to recieve the returned value
 	int retval;
 	char enter;
-	//used to check availability of tour
-int checkAvail(allData);
-// used to enter to the detail
+// prototyping functions
+int checkAvail(allData);  //used to check availability of tour
 void adminlogin();
 void userlogin();
 void adminOUT();
@@ -85,16 +84,13 @@ void  ticketCANB();
 void yourEntry();
 void  update();
 void loadingBar();
- void paymentFUN();
+void paymentFUN();
+void MainMenuScreen();
 allData givenData={"Bahir Dar","Gondar","Axum","Lalibela","Semein mountain","Axum","Lalibela","Bahir Dar"};
+
 int main ()
 {
-    	cout<<"\n                        =========================================";
-    	cout<<"\n         =============== WELLCOME TO AASTU TOUR AND TRAVEL AGENCY =================";
-    	cout<<"\n                        ==========================================\n";
-    cout<<"1. Admin\n";
-    cout<<"2. User\n";
-    cout<<"E. Exit\n";
+     MainMenuScreen();
     cout<<"press : ";
     enter = getche();
     cout<<endl;
@@ -122,6 +118,32 @@ int main ()
     return 0;
 }
 
+void MainMenuScreen()
+{
+cout<<"               **      :::::::  !!!!!!!!           \n";
+cout<<"            _____  **      ::       !!    !!         _____  \n";
+cout<<"                 **      ::       !!    !!                \n";
+cout<<"               ******  :::::::  !!!!!!!!            \n\n";
+
+ cout<<"\n\n\t\t\n";
+    cout<<"\t\t ....TO AASTU TOUR AND TRAVEL AGENCY...\n";
+    cout<<"\t\t\n\n";
+    cout<<"\t\t         \n";
+    cout<<"\t\t MAIN MENU \n";
+    cout<<"\t\t         \n";
+    cout << "\t      " << setfill(' ') << setw(50) << "" << endl;
+    cout << "\t      " << setfill('-') << setw(50) << "" << endl;
+    cout << "\t      " << setfill(' ') << setw(50) << "" << endl;
+    cout << "\t      " << setfill(' ') << setw(45) << "Please Select One of the Following Options" << setfill(' ') << setw(5) << "" << endl;
+    cout << "\t      " << setfill(' ') << setw(50) << "" << endl;
+    cout << "\t      " << setfill(' ') << setw(25) << "1. ADMIN" << setfill(' ') << setw(25) << "" << endl;
+    cout << "\t      " << setfill(' ') << setw(28) << "2. NEW USER" << setfill(' ') << setw(22) << "" << endl;
+    cout << "\t      " << setfill(' ') << setw(24) << "3. EXIT" << setfill(' ') << setw(26) << "" << endl;
+    cout << "\t      " << setfill(' ') << setw(50) << "" << endl;
+    cout << "\t      " << setfill(' ') << setw(50) << "" << endl;
+    cout << "\t      " << setfill('') << setw(50) << "" << endl;
+    cout << endl;
+}
 
 void adminlogin()
 {
@@ -130,10 +152,10 @@ void adminlogin()
     char admin[10], defAD[] = {"sectionB"};
 again:
     cout<<"\n\n\n";
-    cout<<"              ||########  wellcome to my admin ######### ||\n";
+    cout<<"         WELCOME TO MY ADMIN \n";
     cout<<"Admin username : ";
     cin>>admin;
-    printf("password : ");
+    cout<<"password : ";
     for(int i=0;i<9;i++)
     {
         enter= getch();
