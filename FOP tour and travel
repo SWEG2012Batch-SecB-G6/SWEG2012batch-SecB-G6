@@ -66,11 +66,9 @@ int checkAvail(allData);  //used to check availability of tour
 void adminlogin();
 void userlogin();
 void adminOUT();
-
 void switchCheck();
 void bahirDarFun();
 void reccom();
-
 void gondINFO();
 void gondarFun();
 void axumFun();
@@ -79,12 +77,9 @@ void addPlace();
 void semienFun();
 void BahiINFO();
 void newPlace();
-
 void  ticketRESofB();
 float  ticketcostB(calTOT);
 void  ticketCANB();
-
-void  update();
 void loadingBar();
 void paymentFUN();
 void MainMenuScreen();
@@ -95,7 +90,6 @@ void yourEntry(bahiTEchres bahir[],int num);
 void update(bahiTEchres bahir[],int num);
 void deletes(bahiTEchres bahir[],int num);
 int num;
-
 
 
 allData givenData={"Bahir Dar","Gondar","Axum","Lalibela","Semein mountain","Axum","Lalibela","Bahir Dar"};
@@ -1344,6 +1338,3 @@ yourEntry (bahir,num1);
 
 }}
 }
-
-
-
