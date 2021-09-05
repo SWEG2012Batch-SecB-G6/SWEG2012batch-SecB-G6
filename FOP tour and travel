@@ -39,13 +39,8 @@ struct date
 		int DATEcheckerRE;
 }date1;
 struct payPal
-{
-	string name;
-	string address;
-	string email;
-	string password;
 
-}PAYPAL[20];
+
 struct bahiTEchres
 {
              		string name;
@@ -90,6 +85,65 @@ void yourEntry(bahiTEchres bahir[],int num);
 void update(bahiTEchres bahir[],int num);
 void deletes(bahiTEchres bahir[],int num);
 int num;
+
+//A class for payment options
+ class payment//class for payment
+{
+
+    long int choice1,bank,card,date,cvv,user_id,reseCode;
+    char password[10];
+public://public members functions
+    void pay_detail()//function declaration and definition for payment method
+    {     cout << "\n\n\nHow would you like to pay?:\n";
+        cout << "\n\1.Debit Card(1) \n\2.Credit Card(2) \n\3.Net Banking(3)";
+        cout << "\n\nEnter your choice:...";
+        cin >> choice1;
+        switch(choice1)//switch case
+        {
+        case 1://condition
+            cout<<"enter reservation code :";
+            cin>>reseCode;
+            cout << "\nEnter card no.:";
+            cin >> card;
+            cout << "\nEnter expiry date:";
+            cin >> date;
+            cout << "\nEnter CVV no.:";
+            cin >> cvv;
+            cout << "\nTransaction Successful\n";
+            break;
+        case 2://condition
+            cout<<"enter reservation code :";
+            cin>>reseCode;
+            cout << "\nEnter card no.:";
+            cin >> card;
+            cout << "\nEnter expiry date:";
+            cin >> date;
+            cout << "\nEnter password:";
+            cin >> password;
+            cout << "\nTransaction Successful\n";
+            break;
+        case 3://condition
+            cout << "Banks Available: \1.commertial Bank(1) \2.Nib Bank(2) \3.dashen Bank(3) \4.abissinia Bank(4) \5.Others(5)";
+            cout << "\nSelect your bank:";
+            cin >> bank;
+            cout << "\nYou have selected:" << bank;
+            cout << "\nEnter user id:";
+            cin >> user_id;
+            cout << "\nEnter password:";
+            cin >> password;
+            cout<<"enter reservation code :";
+            cin>>reseCode;
+            cout << "\nTransaction Successful\n";
+            break;
+        default://condition
+            cout << "\nWrong input entered.\nTry again\n\n";
+
+            return pay_detail();
+        }
+    }
+
+};
+
 
 
 allData givenData={"Bahir Dar","Gondar","Axum","Lalibela","Semein mountain","Axum","Lalibela","Bahir Dar"};
