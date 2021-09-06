@@ -4,11 +4,63 @@
 #include<conio.h>
 #include<windows.h>
 #include<iomanip>
+#include  <cstdlib>
 #define ENTER 13
 #define TAB 9
 #define BKSP 8
 #define SPACE 32
 using namespace std;
+
+
+char enter;
+using namespace std;
+
+void NorthernHistoricRoute();
+void easternRoute();
+void southCenteralRoute();
+void weaternRoute();
+void Header();
+void NameAdderssOfVisitor();
+void Booking();
+void Destinations();
+void TripPriceOverview();
+int destinationDisplay();
+void displayingTours();
+float discount(float x);
+void displayPackagedTour();
+void AdminWelcomeScreen();
+void MainMenuScreen();
+int reserveCode();
+
+int choice;
+
+struct date
+{
+		int depdd;
+		int depmm;
+		int depyy;
+		int retdd;
+		int retmm;
+		int retyy;
+}date1;
+
+string  Room_type [5]={"single_room", "Double_room", "Twin_Room","king_room", "Tent"};
+
+
+struct TouristInfo{
+    date Depature_Date;
+    date return_Date;
+    int number;
+    int visitors;
+    int Touristumber;
+    char Full_Name[45];
+    char Email[50];
+    int Phone_Number[10];
+    char Address[30];
+    int infoLook,desiredNum;
+    int RoomNumber;
+    int Room;
+}TourNum;
 struct calTOT
 {
 	float distance;
@@ -2083,3 +2135,686 @@ yourEntry (bahir,num1);
 
 }}
 }
+
+
+
+class FixedTours{
+
+public:
+
+
+void Meskel(){
+    Try:
+        system("cls");
+        Header();
+        cout<< "press 1 to see information:... \n press 2 to book...";
+        enter=getch();
+        switch(enter){
+        case'1':
+            {
+
+   cout<< " Meskel Festival"
+"Meskal is second in importance only to Timket and has been celebrated for over 1,600\n years. The word actually means “cross” and the feast commemorates when the cross\n Christ was revealed to Empress Helena, mother of Constantine the Great.\n"
+
+"meskel square meskel festival\n"
+"Meskel : Meskel Festival\n"
+"In Addis Ababa, celebrations start in the early afternoon when a procession bearing\n flaming torches approaches Meskal Square from various directions. Thousands gather\n \nat the Square to bid farewell to the rains and welcome in “Tseday” the spring \nseason with its profuse Meskal daisies and golden sunshine."
+
+"meskel festival damera"
+"Meskel Meskel Festival"
+"As evening darkens, the flames glow brighter. It is not until dawn that the burning pyramid consumes itself entirely and the big tree at the center finally falls. During the celebrations, houses are stocked with tella the local beer, and strangers are made welcome.";
+            }
+             cout<< "\n\tpress (1) to go back any key to Book: ";
+          cin>>choice;
+            if(choice==1){
+              goto Try;
+            }
+           else{
+                  system("cls");
+              Booking();
+            }
+
+            break;
+        case '2':
+            system("cls");
+            Header();
+            cout<< "press 1 to see price information \n any key to book\n";
+            enter=getch();
+            if(enter==1){
+                 TripPriceOverview();
+            }
+            else{
+                    system("cls");
+            Booking();
+            }
+}
+
+}
+
+};
+
+string destinationToVIsit[5]={"Northern historic route" , "eastern route", "western route", "south central route"};
+
+void Check(){
+if( TourNum.Depature_Date.depdd &&  TourNum.return_Date.depdd>31 ||  TourNum.Depature_Date.depdd &&  TourNum.return_Date.depdd <=0)
+{
+       system("cls");
+    cout<<"Day can not exceed from 31 and can not be negative or 0!\n please enter again. \n";
+    Booking();
+}
+else if ( TourNum.Depature_Date.depmm &&  TourNum.return_Date.depmm >12 ||  TourNum.Depature_Date.depmm &&  TourNum.return_Date.depmm <=0){
+        system("cls");
+    cout<<"Month can not exceed from 12 and can not be negative or 0!\n please enter again. \n";
+     Booking();
+}
+else if (TourNum.Depature_Date.depyy &&  TourNum.return_Date.depyy <2013 ||  TourNum.Depature_Date.depyy &&  TourNum.return_Date.depyy <=0){
+           system("cls");
+       cout<<"year can not be less from existing year and can not be negative or 0!\n please enter again. \n";
+        Booking();
+}
+else
+    cout<<"\n\n"<<system("pause");
+
+}
+
+
+
+void Booking(){
+    Header();
+    BookingError:
+ //accepting depature date
+      cout<<"please enter depature date: \n";
+      cout<<"\tEnter depature day: ";
+      cin>> TourNum.Depature_Date.depdd;
+      cout<<"\tEnter depature month: ";
+      cin>>TourNum.Depature_Date.depmm;
+      cout<<"\tEnter depature year: ";
+      cin>>TourNum.Depature_Date.depyy;
+ //accepting return date
+      cout<< "please enter return date: \n";
+      cout<<"\tEnter return day: ";
+      cin>> TourNum.return_Date.depdd;
+      cout<<"\tEnter return month: ";
+      cin>>TourNum.return_Date.depmm;
+      cout<<"\tEnter return year: ";
+      cin>>TourNum.return_Date.depyy;
+if( TourNum.Depature_Date.depdd &&  TourNum.return_Date.depdd>31 ||  TourNum.Depature_Date.depdd &&  TourNum.return_Date.depdd <=0)
+{
+       system("cls");
+    cout<<"Day can not exceed from 31 and can not be negative or 0!\n please enter again. \n";
+    Booking();
+}
+else if ( TourNum.Depature_Date.depmm &&  TourNum.return_Date.depmm >12 ||  TourNum.Depature_Date.depmm &&  TourNum.return_Date.depmm <=0){
+        system("cls");
+    cout<<"Month can not exceed from 12 and can not be negative or 0!\n please enter again. \n";
+     Booking();
+}
+else if (TourNum.Depature_Date.depyy &&  TourNum.return_Date.depyy <2013 ||  TourNum.Depature_Date.depyy &&  TourNum.return_Date.depyy <=0){
+           system("cls");
+       cout<<"year can not be less from existing year and can not be negative or 0!\n please enter again. \n";
+        Booking();
+}
+else
+{
+    system("pause");
+}
+
+
+    cout << " Enter number of visitors you are booking : ";
+    cin>> TourNum.visitors;
+
+for(int i=0; i<TourNum.visitors; i++)
+     {
+     cout<<i+1<<"th traveller"<<endl;
+     cout<< " full name: ";
+     cin.get(TourNum.Full_Name,45);
+     cout<<" Address: ";
+     cin.get(TourNum.Address, 50);
+     cout<<" phone number: ";
+     cin>> TourNum.Phone_Number[10];
+     }
+
+    cout<< "your email: ";
+     cin>> TourNum.Email;
+     system("cls");
+     Header();
+     cout<< "what type of room do you want \n";
+  for (int i=0; i<5; ++i)
+    {
+     cout<<i+1<< ". "<<Room_type[i]<< endl;
+    }
+
+cout << "room...";
+cin>> TourNum.Room;
+
+     cout<< "how many rooms/tents do you need \n";
+     cin>>TourNum.RoomNumber;
+
+     cout<< " Booked successfully!\n"<< "your reservation code will be sent soon\n";
+          //here there is a code which gives a random number
+     cout<< "your reservation code is: "<< reserveCode()<< endl;
+     cout<<"which way do you wanna pay:\n ";
+         //there is a function here which displays ways to pay
+     cout<< "you have paid successfully : "<< reserveCode()<< endl;
+     cout<< "Thank you for choosing us\n";
+
+
+}
+
+
+
+
+
+void TripPriceOverview()
+{
+    system("cls");
+    Header();
+    cout<<
+ " \nPrice inclusive of:\n"
+
+    "\nAll accommodation is based on twin sharing.\n"
+    "\nAll ground transportations with fuel/ Ground transportation by a newest model air conditioned 4WD, Minibus or coaster bus /\n"
+    "\n Three domestic flights\n"
+    "\nPrivate vehicles with driver (road tax, parking, vehicle and driver insurance, accommodation of the driver and allowance)\n"
+    "\n The services of escort guide qualified in English during the whole voyage\n"
+    "\nservices of local guides during site visits.\n"
+    "\nMeal on full board ( breakfast, Lunch and Dinner )\n"
+    "\nAirport Transfers\n"
+    "\nCity transfer\n"
+    "\nAll entrance fees as per the program\n"
+    "\nMule riding \n"
+    "\nScouts \n"
+    "\nGovernment Tax\n"
+
+"\nPrice exclusive of:\n "
+
+    "\nInternational airfare\n"
+    "\nAny alcoholic drinks\n"
+    "\nSingle accommodation (available on request)\n"
+    "\nPersonal expense like souvenirs, laundry, etc\n"
+    "\nMeals (Lunch and Dinner)\n"
+    "\nTips\n"
+    "\nVisa expenses.\n"
+    "\nVideo or photographing fees or tips at different sites. – Any alcoholic beverages And any personal item expense\n"
+    "\n Any expense which is not stated in the ‘ Included List’ above";
+
+  cout<< "please be with mask.   \t\t dont forget to have your identification card or passport when you coming\n";
+}
+
+
+void NorthernHistoricRoute()
+{
+    int num;
+
+    Try:
+        system("cls");
+        Header();
+    cout<< "\npress (1)=> to see information about the route. \npress (2)=> to see travel itinerary and trip inclusion overview\n press (3) to Book: =>> ";
+ enter=getch();
+
+switch (enter){
+    case '1':
+        system("cls");
+        Header();
+        cout<< "\n\nGondar, or Gonder, is a city in northern Ethiopia. It's known for the walled Fasil Ghebbi fortress and palace compound, \n"
+           "once the seat of Ethiopian emperors. Dominating it is the immense 17th-century castle of Emperor Fasilides, which combines Portuguese, Indian and local architectural styles.\n ";
+         system("pause");
+       cout<< "\n\tpress (1) to go back any key to Book: ";
+          cin>>choice;
+            if(choice==1){
+              goto Try;
+            }
+           else{
+                  system("cls");
+              Booking();
+            }
+           break;
+    Others:
+    case '2':
+        system("cls");
+        Header();
+        cout<< "\npress =>>  1. to see Itinerary \t2. to see Date and price \n\n";
+            cin>> num;
+
+    if(num==1)
+          {
+              system("cls");
+              Header();
+          cout<<"\nDay 01 : ##Addis Ababa - Lalibela##\n"
+          "After breakfast transfer to the airport for your flight to Lalibela, famous for its rock-hewn churches dating back "
+          "800 years. This is the most important stop on the historical route and from the air the 11 churches, carved into the rugged mountainside, "
+           "present an awesome spectacle. Afternoon excursion to the most spectacular churches.lalibela "
+          "\nDay 02: ##Lalibela -Gonder##\n"
+          "In the morning Transfer to the airport for your flight to Gondar. In the afternoon a city tour of Gondar including a visit to the"
+          "Royal Compound, where enchanting 17th century castles stand. Also, visit DebreBerhan Selassie Church meaning Trinity at the Mount of Light."
+          "\n##gonder fasil castle##"
+          "\n##Day 03 Bahirdar - Addis Ababa##\n"
+          "In the morning drive to Bahir Dar on Lake Tana, the source of the Blue Nile. The afternoon is spent visiting isolated monasteries by boat.\n"
+          "There is good birding in the lush forest surrounding much of the lake. Then drive to the thundering Blue Nile Falls. Along the walk to the"
+          "falls, birding is excellent. Evening fly back to Addis.\n";
+
+          cout<< "\n\n\tpress (1) to go back any key to Book: ";
+          cin>>choice;
+            if(choice==1){
+              goto Others;
+            }
+
+           else{
+                  system("cls");
+              Booking();
+            }
+
+          } else if (num==2){
+                 system("cls");
+                TripPriceOverview();
+
+        }else {
+               system("cls");
+         cout<< "incorrect number .";
+         cout<< "\n\tpress (1) to go back any key to Book: ";
+          enter=getch();
+            if(enter==1){
+              goto Others;
+            }
+           else{
+                  system("cls");
+              Booking();
+            }
+        }
+break;
+
+case '3':
+    system("cls");
+    Booking();
+break;
+default:
+    cout<<"enter a correct number: ";
+    goto Try;
+    break;
+}
+}
+
+void weaternRoute()
+{
+    int num;
+    Try:
+        system("cls");
+        Header();
+    cout<< "\npress (1)=> to see information about the route. \npress (2)=> to see travel itinerary and trip inclusion overview\n press (3) to Book: =>> ";
+ enter=getch();
+
+switch (enter){
+    case '1':
+        system("cls");
+        Header();
+          cout<<" King Aba Jifar II's father was the first ruler of Jimma to embrace Islam. The Oromia Region is now predominantly Muslim, and \n"
+         "the Palace is considered a symbol of the origin of Islam in the region. The Palace is the oldest, largest and best preserved surviving \n"
+         "example of traditional wooden architecture in Jimma.\n\n";
+
+         system("pause");
+       cout<< "\n\tpress (1) to go back any key to Book: ";
+          cin>>choice;
+            if(choice==1){
+              goto Try;
+            }
+           else{
+                  system("cls");
+              Booking();
+            }
+           break;
+    Others:
+    case '2':
+        system("cls");
+        Header();
+        cout<< "\npress =>>  1. to see Itinerary \t2. to see Date and price \n\n";
+            cin>> num;
+
+    if(num==1)
+          {
+              system("cls");
+              Header();
+         cout<<
+         "Day 01:Addis Ababa\n"
+         "Arrival of Addis Ababa and meet the Yama Ethiopia Tours representative. Then transfer your hotel. Depending on your arrival time make sightseeing in Addis Ababa.\n"
+         "lucy-dinkinesh-fossil\n"
+        "Day 02:Jimma\n"
+
+        "Morning after breakfast drive to Jimma passing through Wolkite on the way we will visit the Gurage ethnic group with their big circular grass hat\n"
+        " house and beautiful scenery over view the Gibe valley and Gilgel Gibe hydro-electric. jimma aba jifar castle\n"
+        "Day 03: Mizanteferi\n"
+        "After breakfast drive to MizanTeferi, passing through coffee plantations. The area is known historic for strong Kingdom Kaffa, the birthplace of coffee, \n"
+        "which the term coffee came from. ethiopian coffee\n"
+        "Day 04: Kibish\n"
+        "Morning drive to Kibish on the way visit the Bebeka coffee plantation, where they cultivate organic coffee trees, tea, spice as well as rubber trees.\n"
+        "Short break for visit coffee farm from nursery to the coffee processing techniques. bebeka-coffee-plantation\n"
+        "Day 05: Kibish - Surma Village\n"
+        "Today we will have full day visit of the Surma. Morning after breakfast drive to Bebeka via Magi on the way visit the Dizi tribe. The Dizi people are \n"
+        "hereditarily very short people who have beehive-like houses, similar to the Dorze.surma people \n"
+        "Day 6 : Jimma - Addis Ababa \n"
+        "Morning after breakfast drive back to Addis Ababa. Evening a fair well dinner then departure back to home. \n";
+
+          cout<< "\n\n\tpress (1) to go back any key to Book: ";
+          cin>>choice;
+            if(choice==1){
+              goto Others;
+            }
+
+           else{
+                  system("cls");
+              Booking();
+            }
+
+          } else if (num==2){
+                 system("cls");
+                TripPriceOverview();
+
+        }else {
+               system("cls");
+         cout<< "incorrect number .";
+         cout<< "\n\tpress (1) to go back any key to Book: ";
+          enter=getch();
+            if(enter==1){
+              goto Others;
+            }
+           else{
+                  system("cls");
+              Booking();
+            }
+        }
+break;
+
+case '3':
+    system("cls");
+    Booking();
+break;
+default:
+    cout<<"enter a correct number: ";
+    goto Try;
+    break;
+}
+}
+
+void southCenteralRoute()
+{
+    int num;
+    Try:
+        system("cls");
+        Header();
+    cout<< "\npress (1)=> to see information about the route. \npress (2)=> to see travel itinerary and trip inclusion overview\n press (3) to Book: =>> ";
+ enter=getch();
+
+switch (enter){
+    case '1':
+        system("cls");
+        Header();
+        cout<<" Most resourceful zone in southern region including two large lakes (Abaya and Chamo), more than 40 springs and Nechisar National Park\n"
+      "with its famous crocodile market. The area produces several fruits including banana, apple, mango and avocado.\n\n";
+         system("pause");
+       cout<< "\n\tpress (1) to go back any key to Book: ";
+          cin>>choice;
+            if(choice==1){
+              goto Try;
+            }
+           else{
+                  system("cls");
+              Booking();
+            }
+           break;
+    Others:
+    case '2':
+        system("cls");
+        Header();
+        cout<< "\npress =>>  1. to see Itinerary \t2. to see Date and price \n\n";
+            cin>> num;
+
+    if(num==1)
+          {
+              system("cls");
+              Header();
+         cout<<
+      "Day 01:Addis Ababa - Arbaminch\n"
+      "In the morning drive to Arba Minch en route you will visit the series Rift Valley lakes that are teemed with different bird species.\n"
+      "Day 02:Arbaminch\n"
+      "Morning after breakfast make boat trip on Lake Chamo to see the largest crocodiles in Africa which measure up to 7 Mts. Afternoon visit\n"
+      "Chencha village to visit Dorze people. lake-chamo-corocodile\n"
+      "Day 03:Hawassa \n"
+      "Morning after breakfast drive to Awassa. Awassa is a bustling Ethiopian town in the heart of the Great Rift Valley.hawassa fish market\n"
+      "Day 04:Hawassa - Addis Ababa \n"
+      "Morning visit the daily local fish market at Lake Awassa.and drive back to Addis Ababa Evening fare well dinner at traditional restaurant \n"
+      "and transfer to airport for flight back to home.";
+
+          cout<< "\n\n\tpress (1) to go back any key to Book: ";
+          cin>>choice;
+            if(choice==1){
+              goto Others;
+            }
+
+           else{
+                  system("cls");
+              Booking();
+            }
+
+          } else if (num==2){
+                 system("cls");
+                TripPriceOverview();
+
+        }else {
+               system("cls");
+         cout<< "incorrect number .";
+         cout<< "\n\tpress (1) to go back any key to Book: ";
+          enter=getch();
+            if(enter==1){
+              goto Others;
+            }
+           else{
+                  system("cls");
+              Booking();
+            }
+        }
+break;
+
+case '3':
+    system("cls");
+    Booking();
+break;
+default:
+    cout<<"enter a correct number: ";
+    goto Try;
+    break;
+}
+}
+
+void easternRoute()
+{
+    int num;
+    Try:
+        system("cls");
+        Header();
+    cout<< "\npress (1)=> to see information about the route. \npress (2)=> to see travel itinerary and trip inclusion overview\n press (3) to Book: =>> ";
+ enter=getch();
+
+switch (enter){
+    case '1':
+        system("cls");
+        Header();
+        cout<< "Harar is a city in eastern Ethiopia. It’s surrounded by a centuries-old defensive wall that has several large gates, including Duke's Gate. \n"
+      "The city is known for its mazelike alleys and traditional houses decorated inside with flat hanging baskets. A replica house features at the Harar \n"
+      "Community Centre Museum. A holy Islamic city, Harar has many mosques.\n" ;
+
+         system("pause");
+       cout<< "\n\tpress (1) to go back any key to Book: ";
+          cin>>choice;
+            if(choice==1){
+              goto Try;
+            }
+           else{
+                  system("cls");
+              Booking();
+            }
+           break;
+    Others:
+    case '2':
+        system("cls");
+        Header();
+        cout<< "\npress =>>  1. to see Itinerary \t2. to see Date and price \n\n";
+            cin>> num;
+
+    if(num==1)
+          {
+              system("cls");
+              Header();
+          cout<<
+         "Day 01 : Addis Ababa \n"
+         "Arrival of Addis Ababa and meet the Yama Ethiopia Tours representative. Then transfer your hotel. Depending on your arrival \n"
+         "time make sightseeing in Addis Ababa. lucy dinkinesh \n"
+         "Day 02 : Addis Ababa - Harar \n"
+         "In the morning after breakfast drive to Harar which is the eastern part of Ethiopia known for being origin for the Ethiopian \n"
+         "first grade coffee and old historical tourist attraction site for its unique old round wall built at early of 15th century by the governor of Harar. \n"
+         "harar wall get"
+         "Day 03: Harar \n "
+         "In the morning after breakfast full day in Harar for the visit of Harar sightseeing, the Harari museum, Rainbow house, surrounding of the old wall\n"
+         "and old village and market inside the wall. Evening Hyena man show. harar-hyena-man-show\n"
+         "Day 04: Harar - Addis Ababa\n"
+         "In the morning after breakfast drive to back to Addis Ababa.\n";
+
+          cout<< "\n\n\tpress (1) to go back any key to Book: ";
+          cin>>choice;
+            if(choice==1){
+              goto Others;
+            }
+
+           else{
+                  system("cls");
+              Booking();
+            }
+
+          } else if (num==2){
+                 system("cls");
+                TripPriceOverview();
+
+        }else {
+               system("cls");
+         cout<< "incorrect number .";
+         cout<< "\n\tpress (1) to go back any key to Book: ";
+          enter=getch();
+            if(enter==1){
+              goto Others;
+            }
+           else{
+                  system("cls");
+              Booking();
+            }
+        }
+break;
+
+case '3':
+    system("cls");
+    Booking();
+break;
+default:
+    cout<<"enter a correct number: ";
+    goto Try;
+    break;
+}
+}
+
+
+
+
+string UserChoice(){
+   int UserInput=choice;
+ if (UserInput==1){
+        return destinationToVIsit[0];
+    }
+        else if (UserInput==2){
+            return destinationToVIsit[1];
+        }
+            else if (UserInput==3){
+                return destinationToVIsit[2];
+            }
+            else if  (UserInput==4){
+                return destinationToVIsit[3];
+            }
+                    else {
+                        cout<< "invalid choice\n";
+                }
+
+}
+
+void Header(){
+    cout<<"\n\n\t\t\n";
+    cout<<"\t\t .....WELLCOME TO AASTU TOUR AND TRAVEL AGENCY.....\n";
+    cout<<"\t\t\n\n";
+    cout<<"\t\t TOUR WITH CONFORT \n";
+}
+
+
+int reserveCode()
+{
+for (int count=1; count <= 1; ++count)
+    cout << rand()*234564 << "\t";
+
+return rand()*234564;
+}
+
+
+void displayingTours()
+{
+    Header();
+cout<< "our packaged tour destinations are: \n";
+int price[5]={6500,7800,8940,9950};
+cout<<"\n\t\t#"<<setfill('')<< setw(60)<< "#";
+     for (int i=0; i<4; ++i){
+        cout << "\n\t\t " << setfill(' ') << setw(12) <<i+1<< ". "<<destinationToVIsit[i]<<setfill(' ')<<setw(7)<<" ==> "<<price[i]<<" birr"<< setfill(' ') << setw(17)<< endl;
+     }
+cout<<"\n\t\t#"<<setfill('')<< setw(60)<< "#"<< endl<<endl;
+cout<<"\n\t\t#"<<setfill('')<<setw(25)<<"5. fixed festival tours"<<setfill('')<<setw(25)<< "#"<<endl;
+cout<<"\n\n\n";
+cout<< "please choose your tour destination. "<< endl;
+enter=getche();
+
+switch (enter){
+case '1':
+    system("cls");
+    Header();
+    cout<<"Northern historic route";
+    NorthernHistoricRoute();
+    break;
+case '2':
+    system("cls");
+     Header();
+     cout<<"eastern route";
+     easternRoute();
+    break;
+case '3':
+    system("cls");
+     Header();
+     cout<< " weatern route";
+      weaternRoute();
+     break;
+case '4':
+    system("cls");
+     Header();
+      cout<< "south centeral route";
+       southCenteralRoute();
+      break;
+case '5':
+    system("cls");
+    Header();
+    cout<< "Meskel Festival : ";
+    FixedTours FixedFestival;
+    FixedFestival.Meskel();
+break;
+default:
+    cout<< "please choose the correct destination. \n";
+    break;
+}
+
+}
+FilledDestinationTabular()
+{
+
+}
+
+
+
