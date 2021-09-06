@@ -1,4 +1,4 @@
-#include <iostream>
+#include<iostream>
 #include<string.h>
 #include<stdlib.h>
 #include<conio.h>
@@ -37,7 +37,7 @@ struct date
 		int retyy;
 		int DATEchecker;
 		int DATEcheckerRE;
-}date1;
+};
 struct payPal
 
 
@@ -67,9 +67,12 @@ void reccom();
 void gondINFO();
 void gondarFun();
 void axumFun();
+void axuminfo();
 void laliFun();
+void lalinfo();
 void addPlace();
 void semienFun();
+void semieninfo();
 void BahiINFO();
 void newPlace();
 void  ticketRESofB();
@@ -80,7 +83,7 @@ void paymentFUN();
 void MainMenuScreen();
 void adminsearch();
 void sortData();
-Void groupENTR();
+void groupENTR();
 void yourEntry(bahiTEchres bahir[],int num);
 void update(bahiTEchres bahir[],int num);
 void deletes(bahiTEchres bahir[],int num);
@@ -266,7 +269,7 @@ void userlogin()
 {
      returned :
      cout<<endl<<endl;
-     cout<<"          ================ AASTU tour and travel agency gives these tour services ============\n";
+     cout<<"          ================ AASTU tour and travel agency services ============\n";
      cout<<endl;
      cout<<"           1. Reccomended tours : \n";
      cout<<"           2. Festival tours : \n";
@@ -274,7 +277,7 @@ void userlogin()
      cout<<"           4. others : \n";
      cout<<"           #  Exit : \n";
      //to  enter the above choices use this variable
-     cout<<"\n==== press : ";
+     cout<<"\n==== please enter you choice here : ";
       enter=getche();cout<<endl;
      system("pause");
      system("cls");
@@ -284,7 +287,7 @@ void userlogin()
      switch(enter)
             {
                 case '1':
-            entAGAIN:      cout<<"\n  ======== Reccomended tours are : \n";
+            entAGAIN:      cout<<"\n  ======== Our Reccomended tours are : \n";
                 	         cout<<"1. Bahir Dar\n";
                            cout<<"2. Gondar\n";
                            cout<<"3. Axum\n";
@@ -555,14 +558,14 @@ void bahirDarFun()
                      if (enter=='1')
                        	         {
                 labelnum:system("cls");
-					      cout<<"\n 1. information about your tour\n";
-					      cout<<"\n 2. ticket reservation\n";
-					      cout<<"\n 3. Ticket Cancillation\n";
-					      cout<<"\n 4. update your entry data\n";
+					      cout<<"\npress 1 for information about your tour\n";
+					      cout<<"\npress 2 for ticket reservation\n";
+					      cout<<"\npress 3 for Ticket Cancillation\n";
+					      cout<<"\npress 4 to update your entry data\n";
 					    }
 				     else
-				          exit(0);
-             cout<<"if you want to continue press the given number : "<<endl;
+				          main();
+             cout<<"enter your choice here : "<<endl;
                   enter=getche();
 			switch(enter)
 			         {
@@ -711,19 +714,707 @@ void bahirDarFun()
 }
 void gondarFun()
 {
- bahirDarFun();
+ if(retval==1)
+                       {
+                       	cout<<"\nif you want to continue enter 1 to exit press 0\n";
+                      	   enter=getche();
+                     if (enter=='1')
+                       	         {
+                labelnum:system("cls");
+					      cout<<"\npress 1 for information about your tour\n";
+					      cout<<"\npress 2 for ticket reservation\n";
+					      cout<<"\npress 3 for Ticket Cancillation\n";
+					      cout<<"\npress 4 to update your entry data\n";
+					    }
+				     else
+				          main();
+             cout<<"enter your choice here : "<<endl;
+                  enter=getche();
+			switch(enter)
+			         {
+				        case '1':
+				        	{
+				        	    loadingBar();
+                                    system("cls");
+                                    system("color 07");
+			        	     gondINFO();
+                    reenter0:     cout<<"#. terminate\n";
+                                  cout<<"$. back \n";
+                                   enter=getche();
+                                  if(enter=='#')
+                                      exit(0);
+                                  if(enter=='$')
+                                    goto labelnum;
+                                  if(enter!='#' || enter!='$')
+                                  {cout<<"you entered wrong number\n";
+                                  cout<<" please enter again\n";
+                                   cin.clear();
+                                   cin.ignore();
+                                    goto reenter0;
+                                  }
+        	              	        break;
+                            }
+                        case '2':
+                            {
+                 	                 loadingBar();
+                                    system("cls");
+                                    system("color 07");
+        	              	     ticketRESofB();
+                    reenter:       cout<<"to terminate press 0\n";
+                                  cout<<"to return back press 1\n";
+                                  cout<<"to continue press # : \n";
+                                   enter=getche();
+                                if (enter=='0' || enter=='1')
+                                     if(enter==0)
+                                        exit(0);
+                                     if(enter==1)
+                                        goto labelnum;
+                        else if(enter=='#')
+                                {
+                                float returned;
+                                 returned=ticketcostB(tourTOT[20]);
+                                 loadingBar();
+                                 system("cls");
+                                  system("color 07");
+                                  cout<<"the total cost you cover is : \n";
+                                         cout<<returned<<" birr\n";
+                                }
+                        else
+                                  {cout<<"you entered wrong number\n";
+                                  cout<<"please enter again\n";
+                                     cin.clear();
+                                     cin.ignore();
+                                     goto reenter;
+                                  }
+                       reenter4:  cout<<"#. terminate\n";
+                                  cout<<"$. back\n";
+                                  cout<<"1. reserve the ticket \n";
+                                 enter=getche();
+                                if (enter=='#' || enter=='$')
+                                     if(enter=='#')
+                                        exit(0);
+                                     if(enter=='$')
+                                        goto labelnum;
+                        else if(enter=='1')
+                                {
+                                    loadingBar();
+                                  system("cls");
+                                  system("color 07");
+                                cout<<" seccessfully reserved \n";
+                                  cout<<"can you pay now?\n";
+                                  cout<<" 'y'   for    yes\n";
+                                  cout<<" 'n'   for     No\n";
+                        reenter6:      enter=getche();
+                                        switch(enter)
+                                        {
+                                        case 'y':
+                                        case 'Y':
+                                        	        loadingBar();
+                                                  system("cls");
+                                                  system("color 07");
+                                                 cout<<" 1. by online \n";
+                                                 cout<<" 2. by cash \n";
+                                                 cout<<" 3. Exit \n";
+                                                 cout<<"press there number\n";
+                                                 paymentFUN();
+                                                 break;
+                                        case 'n':
+                                        case 'N':
+                                                 break;
+                                        default:
+                                                      {
+                                                        cout<<"you entered wrong number\n";
+                                                         cout<<"please enter again\n";
+                                                         cin.clear();
+                                                          cin.ignore();
+                                                          goto reenter6;
+                                                     }
+                                                     break;
+                                        }
+                                }
+                        else
+                                  {cout<<"you entered wrong number\n";
+                                  cout<<"please enter again\n";
+                                     cin.clear();
+                                     cin.ignore();
+                                     goto reenter4;
+                                  }
+                                  cout<<"#. to terminate\n";
+                                  cout<<"$. continue\n";
+                    reenter5:    enter=getche();
+                                  if(enter=='#')
+                                      exit(0);
+                                  if(enter=='$')
+                                        goto totalm;
+                                  if(enter!='#' || enter!='$')
+                                  {cout<<"\nyou entered wrong number\n";
+                                  cout<<"please enter again\n";
+                                     cin.clear();
+                                     cin.ignore();
+                                      system("cls");
+                                     goto reenter5;
+                                  }
+           	        totalm: cout<<"\n #. to see your entry\n";
+           	               cout<<"\n $ to Exit\n";
+           	                     cin>>enter;
+     	                     if(enter=='#')
+     	                           yourEntry();
+                           else
+                                exit(0);
+                                main();
+                                	     break;
+			         }
+			            case 3:
+              	                 ticketCANB();
+              	                 break;
+                              case 4:
+     	              	  	     //update();
+     	              	  	     break;
+
+		               }
+
+			     }
 }
 void axumFun()
 {
- bahirDarFun();
+
+if(retval==1)
+                       {
+                       	cout<<"\nif you want to continue enter 1 to exit press 0\n";
+                      	   enter=getche();
+                     if (enter=='1')
+                       	         {
+                labelnum:system("cls");
+					      cout<<"\npress 1 for information about your tour\n";
+					      cout<<"\npress 2 for ticket reservation\n";
+					      cout<<"\npress 3 for Ticket Cancillation\n";
+					      cout<<"\npress 4 to update your entry data\n";
+					    }
+				     else
+				          main();
+             cout<<"enter your choice here : "<<endl;
+                  enter=getche();
+			switch(enter)
+			         {
+				        case '1':
+				        	{
+				        	    loadingBar();
+                                    system("cls");
+                                    system("color 07");
+			        	     axuminfo();
+                    reenter0:     cout<<"#. terminate\n";
+                                  cout<<"$. back \n";
+                                   enter=getche();
+                                  if(enter=='#')
+                                      exit(0);
+                                  if(enter=='$')
+                                    goto labelnum;
+                                  if(enter!='#' || enter!='$')
+                                  {cout<<"you entered wrong number\n";
+                                  cout<<" please enter again\n";
+                                   cin.clear();
+                                   cin.ignore();
+                                    goto reenter0;
+                                  }
+        	              	        break;
+                            }
+                        case '2':
+                            {
+                 	                 loadingBar();
+                                    system("cls");
+                                    system("color 07");
+        	              	     ticketRESofB();
+                    reenter:       cout<<"to terminate press 0\n";
+                                  cout<<"to return back press 1\n";
+                                  cout<<"to continue press # : \n";
+                                   enter=getche();
+                                if (enter=='0' || enter=='1')
+                                     if(enter==0)
+                                        exit(0);
+                                     if(enter==1)
+                                        goto labelnum;
+                        else if(enter=='#')
+                                {
+                                float returned;
+                                 returned=ticketcostB(tourTOT[20]);
+                                 loadingBar();
+                                 system("cls");
+                                  system("color 07");
+                                  cout<<"the total cost you cover is : \n";
+                                         cout<<returned<<" birr\n";
+                                }
+                        else
+                                  {cout<<"you entered wrong number\n";
+                                  cout<<"please enter again\n";
+                                     cin.clear();
+                                     cin.ignore();
+                                     goto reenter;
+                                  }
+                       reenter4:  cout<<"#. terminate\n";
+                                  cout<<"$. back\n";
+                                  cout<<"1. reserve the ticket \n";
+                                 enter=getche();
+                                if (enter=='#' || enter=='$')
+                                     if(enter=='#')
+                                        exit(0);
+                                     if(enter=='$')
+                                        goto labelnum;
+                        else if(enter=='1')
+                                {
+                                    loadingBar();
+                                  system("cls");
+                                  system("color 07");
+                                cout<<" seccessfully reserved \n";
+                                  cout<<"can you pay now?\n";
+                                  cout<<" 'y'   for    yes\n";
+                                  cout<<" 'n'   for     No\n";
+                        reenter6:      enter=getche();
+                                        switch(enter)
+                                        {
+                                        case 'y':
+                                        case 'Y':
+                                        	        loadingBar();
+                                                  system("cls");
+                                                  system("color 07");
+                                                 cout<<" 1. by online \n";
+                                                 cout<<" 2. by cash \n";
+                                                 cout<<" 3. Exit \n";
+                                                 cout<<"press there number\n";
+                                                 paymentFUN();
+                                                 break;
+                                        case 'n':
+                                        case 'N':
+                                                 break;
+                                        default:
+                                                      {
+                                                        cout<<"you entered wrong number\n";
+                                                         cout<<"please enter again\n";
+                                                         cin.clear();
+                                                          cin.ignore();
+                                                          goto reenter6;
+                                                     }
+                                                     break;
+                                        }
+                                }
+                        else
+                                  {cout<<"you entered wrong number\n";
+                                  cout<<"please enter again\n";
+                                     cin.clear();
+                                     cin.ignore();
+                                     goto reenter4;
+                                  }
+                                  cout<<"#. to terminate\n";
+                                  cout<<"$. continue\n";
+                    reenter5:    enter=getche();
+                                  if(enter=='#')
+                                      exit(0);
+                                  if(enter=='$')
+                                        goto totalm;
+                                  if(enter!='#' || enter!='$')
+                                  {cout<<"\nyou entered wrong number\n";
+                                  cout<<"please enter again\n";
+                                     cin.clear();
+                                     cin.ignore();
+                                      system("cls");
+                                     goto reenter5;
+                                  }
+           	        totalm: cout<<"\n #. to see your entry\n";
+           	               cout<<"\n $ to Exit\n";
+           	                     cin>>enter;
+     	                     if(enter=='#')
+     	                           yourEntry();
+                           else
+                                exit(0);
+                                main();
+                                	     break;
+			         }
+			            case 3:
+              	                 ticketCANB();
+              	                 break;
+                              case 4:
+     	              	  	     //update();
+     	              	  	     break;
+
+		               }
+
+			     }
 }
 void laliFun()
 {
-   bahirDarFun();
+   if(retval==1)
+                       {
+                       	cout<<"\nif you want to continue enter 1 to exit press 0\n";
+                      	   enter=getche();
+                     if (enter=='1')
+                       	         {
+                labelnum:system("cls");
+					      cout<<"\npress 1 for information about your tour\n";
+					      cout<<"\npress 2 for ticket reservation\n";
+					      cout<<"\npress 3 for Ticket Cancillation\n";
+					      cout<<"\npress 4 to update your entry data\n";
+					    }
+				     else
+				          main();
+             cout<<"enter your choice here : "<<endl;
+                  enter=getche();
+			switch(enter)
+			         {
+				        case '1':
+				        	{
+				        	    loadingBar();
+                                    system("cls");
+                                    system("color 07");
+			        	     lalinfo();
+                    reenter0:     cout<<"#. terminate\n";
+                                  cout<<"$. back \n";
+                                   enter=getche();
+                                  if(enter=='#')
+                                      exit(0);
+                                  if(enter=='$')
+                                    goto labelnum;
+                                  if(enter!='#' || enter!='$')
+                                  {cout<<"you entered wrong number\n";
+                                  cout<<" please enter again\n";
+                                   cin.clear();
+                                   cin.ignore();
+                                    goto reenter0;
+                                  }
+        	              	        break;
+                            }
+                        case '2':
+                            {
+                 	                 loadingBar();
+                                    system("cls");
+                                    system("color 07");
+        	              	     ticketRESofB();
+                    reenter:       cout<<"to terminate press 0\n";
+                                  cout<<"to return back press 1\n";
+                                  cout<<"to continue press # : \n";
+                                   enter=getche();
+                                if (enter=='0' || enter=='1')
+                                     if(enter==0)
+                                        exit(0);
+                                     if(enter==1)
+                                        goto labelnum;
+                        else if(enter=='#')
+                                {
+                                float returned;
+                                 returned=ticketcostB(tourTOT[20]);
+                                 loadingBar();
+                                 system("cls");
+                                  system("color 07");
+                                  cout<<"the total cost you cover is : \n";
+                                         cout<<returned<<" birr\n";
+                                }
+                        else
+                                  {cout<<"you entered wrong number\n";
+                                  cout<<"please enter again\n";
+                                     cin.clear();
+                                     cin.ignore();
+                                     goto reenter;
+                                  }
+                       reenter4:  cout<<"#. terminate\n";
+                                  cout<<"$. back\n";
+                                  cout<<"1. reserve the ticket \n";
+                                 enter=getche();
+                                if (enter=='#' || enter=='$')
+                                     if(enter=='#')
+                                        exit(0);
+                                     if(enter=='$')
+                                        goto labelnum;
+                        else if(enter=='1')
+                                {
+                                    loadingBar();
+                                  system("cls");
+                                  system("color 07");
+                                cout<<" seccessfully reserved \n";
+                                  cout<<"can you pay now?\n";
+                                  cout<<" 'y'   for    yes\n";
+                                  cout<<" 'n'   for     No\n";
+                        reenter6:      enter=getche();
+                                        switch(enter)
+                                        {
+                                        case 'y':
+                                        case 'Y':
+                                        	        loadingBar();
+                                                  system("cls");
+                                                  system("color 07");
+                                                 cout<<" 1. by online \n";
+                                                 cout<<" 2. by cash \n";
+                                                 cout<<" 3. Exit \n";
+                                                 cout<<"press there number\n";
+                                                 paymentFUN();
+                                                 break;
+                                        case 'n':
+                                        case 'N':
+                                                 break;
+                                        default:
+                                                      {
+                                                        cout<<"you entered wrong number\n";
+                                                         cout<<"please enter again\n";
+                                                         cin.clear();
+                                                          cin.ignore();
+                                                          goto reenter6;
+                                                     }
+                                                     break;
+                                        }
+                                }
+                        else
+                                  {cout<<"you entered wrong number\n";
+                                  cout<<"please enter again\n";
+                                     cin.clear();
+                                     cin.ignore();
+                                     goto reenter4;
+                                  }
+                                  cout<<"#. to terminate\n";
+                                  cout<<"$. continue\n";
+                    reenter5:    enter=getche();
+                                  if(enter=='#')
+                                      exit(0);
+                                  if(enter=='$')
+                                        goto totalm;
+                                  if(enter!='#' || enter!='$')
+                                  {cout<<"\nyou entered wrong number\n";
+                                  cout<<"please enter again\n";
+                                     cin.clear();
+                                     cin.ignore();
+                                      system("cls");
+                                     goto reenter5;
+                                  }
+           	        totalm: cout<<"\n #. to see your entry\n";
+           	               cout<<"\n $ to Exit\n";
+           	                     cin>>enter;
+     	                     if(enter=='#')
+     	                           yourEntry();
+                           else
+                                exit(0);
+                                main();
+                                	     break;
+			         }
+			            case 3:
+              	                 ticketCANB();
+              	                 break;
+                              case 4:
+     	              	  	     //update();
+     	              	  	     break;
+
+		               }
+
+			     }
 }
 void semienFun()
 {
-bahirDarFun();
+if(retval==1)
+                       {
+                       	cout<<"\nif you want to continue enter 1 to exit press 0\n";
+                      	   enter=getche();
+                     if (enter=='1')
+                       	         {
+                labelnum:system("cls");
+					      cout<<"\npress 1 for information about your tour\n";
+					      cout<<"\npress 2 for ticket reservation\n";
+					      cout<<"\npress 3 for Ticket Cancillation\n";
+					      cout<<"\npress 4 to update your entry data\n";
+					    }
+				     else
+				          main();
+             cout<<"enter your choice here : "<<endl;
+                  enter=getche();
+			switch(enter)
+			         {
+				        case '1':
+				        	{
+				        	    loadingBar();
+                                    system("cls");
+                                    system("color 07");
+			        	     semieninfo();
+                    reenter0:     cout<<"#. terminate\n";
+                                  cout<<"$. back \n";
+                                   enter=getche();
+                                  if(enter=='#')
+                                      exit(0);
+                                  if(enter=='$')
+                                    goto labelnum;
+                                  if(enter!='#' || enter!='$')
+                                  {cout<<"you entered wrong number\n";
+                                  cout<<" please enter again\n";
+                                   cin.clear();
+                                   cin.ignore();
+                                    goto reenter0;
+                                  }
+        	              	        break;
+                            }
+                        case '2':
+                            {
+                 	                 loadingBar();
+                                    system("cls");
+                                    system("color 07");
+        	              	     ticketRESofB();
+                    reenter:       cout<<"to terminate press 0\n";
+                                  cout<<"to return back press 1\n";
+                                  cout<<"to continue press # : \n";
+                                   enter=getche();
+                                if (enter=='0' || enter=='1')
+                                     if(enter==0)
+                                        exit(0);
+                                     if(enter==1)
+                                        goto labelnum;
+                        else if(enter=='#')
+                                {
+                                float returned;
+                                 returned=ticketcostB(tourTOT[20]);
+                                 loadingBar();
+                                 system("cls");
+                                  system("color 07");
+                                  cout<<"the total cost you cover is : \n";
+                                         cout<<returned<<" birr\n";
+                                }
+                        else
+                                  {cout<<"you entered wrong number\n";
+                                  cout<<"please enter again\n";
+                                     cin.clear();
+                                     cin.ignore();
+                                     goto reenter;
+                                  }
+                       reenter4:  cout<<"#. terminate\n";
+                                  cout<<"$. back\n";
+                                  cout<<"1. reserve the ticket \n";
+                                 enter=getche();
+                                if (enter=='#' || enter=='$')
+                                     if(enter=='#')
+                                        exit(0);
+                                     if(enter=='$')
+                                        goto labelnum;
+                        else if(enter=='1')
+                                {
+                                    loadingBar();
+                                  system("cls");
+                                  system("color 07");
+                                cout<<" seccessfully reserved \n";
+                                  cout<<"can you pay now?\n";
+                                  cout<<" 'y'   for    yes\n";
+                                  cout<<" 'n'   for     No\n";
+                        reenter6:      enter=getche();
+                                        switch(enter)
+                                        {
+                                        case 'y':
+                                        case 'Y':
+                                        	        loadingBar();
+                                                  system("cls");
+                                                  system("color 07");
+                                                 cout<<" 1. by online \n";
+                                                 cout<<" 2. by cash \n";
+                                                 cout<<" 3. Exit \n";
+                                                 cout<<"press there number\n";
+                                                 paymentFUN();
+                                                 break;
+                                        case 'n':
+                                        case 'N':
+                                                 break;
+                                        default:
+                                                      {
+                                                        cout<<"you entered wrong number\n";
+                                                         cout<<"please enter again\n";
+                                                         cin.clear();
+                                                          cin.ignore();
+                                                          goto reenter6;
+                                                     }
+                                                     break;
+                                        }
+                                }
+                        else
+                                  {cout<<"you entered wrong number\n";
+                                  cout<<"please enter again\n";
+                                     cin.clear();
+                                     cin.ignore();
+                                     goto reenter4;
+                                  }
+                                  cout<<"#. to terminate\n";
+                                  cout<<"$. continue\n";
+                    reenter5:    enter=getche();
+                                  if(enter=='#')
+                                      exit(0);
+                                  if(enter=='$')
+                                        goto totalm;
+                                  if(enter!='#' || enter!='$')
+                                  {cout<<"\nyou entered wrong number\n";
+                                  cout<<"please enter again\n";
+                                     cin.clear();
+                                     cin.ignore();
+                                      system("cls");
+                                     goto reenter5;
+                                  }
+           	        totalm: cout<<"\n #. to see your entry\n";
+           	               cout<<"\n $ to Exit\n";
+           	                     cin>>enter;
+     	                     if(enter=='#')
+     	                           yourEntry();
+                           else
+                                exit(0);
+                                main();
+                                	     break;
+			         }
+			            case 3:
+              	                 ticketCANB();
+              	                 break;
+                              case 4:
+     	              	  	     //update();
+     	              	  	     break;
+
+		               }
+
+			     }
+}
+void semieninfo()
+{
+cout<<"        Simien Mountains, Simien also spelled Semien or Simēn, mountains in northern Ethiopia,"
+" northeast of Gonder. In the range is Ras Dejen (or Dashen), the highest peak in Ethiopia at 14,872 feet"
+" (4,533 metres). The region is the site of Simien Mountains National Park, which is home to a number of"
+" very rare species that include the walia ibex, found nowhere else in the world. The park was one of the"
+" first locations to be recognized by UNESCO as a World Heritage site. ";
+}
+void lalinfo()
+{
+cout<<"        Lalībela, historical name Roha, religious and pilgrimage centre, north-central Ethiopia."
+" Roha, capital of the Zagwe dynasty for about 300 years, was renamed for its most distinguished monarch,"
+" Lalībela (late 12th–early 13th century), who, according to tradition, built the 11 monolithic churches "
+"for which the place is famous. The churches, designated a UNESCO World Heritage site in 1978, were hewn "
+"out of solid rock (entirely below ground level) in a variety of styles. Generally, trenches were excavated"
+" in a rectangle, isolating a solid granite block. The block was then carved both externally and internally,"
+" the work proceeding from the top downward. The churches are arranged in two main groups, connected by "
+"subterranean passageways. One group, surrounded by a trench 36 feet (11 metres) deep, includes House of Emmanuel,"
+" House of Mercurios, Abba Libanos, and House of Gabriel, all carved from a single rock hill. House of Medhane Alem "
+"(“Saviour of the World”) is the largest church, 109 feet (33 metres) long, 77 feet (23 metres) wide, and 35 feet "
+"(10 metres) deep. House of Giyorgis, cruciform in shape, is carved from a sloping rock terrace. House of Golgotha"
+" contains Lalībela’s tomb, and House of Mariam is noted for its frescoes. The interiors were hollowed out into "
+"naves and given vaulted ceilings.";
+}
+void axuminfo()
+{
+cout<<"         Aksum, also spelled Axum, ancient town in northern Ethiopia. It lies at an elevation of "
+"about 7,000 feet (2,100 metres), just west of Adwa.Once the seat of the kingdom of Aksum, it is now a "
+"tourist town and religious centre best known for its antiquities. Tall granite obelisks, 126 inches all,"
+" stand (or lie broken) in the central square. One measuring 110 feet (34 metres), now fallen, is said to"
+" be the tallest obelisk ever erected. The obelisks range from nearly plain slabs to intricately inscribed "
+"pillars. Door- and window-like shapes are carved into some of the pillars, giving them the appearance of "
+"slender buildings. The most recent of the obelisks announces the adoption of Christianity by a 4th-century "
+"king. One of these remarkable objects, dated to at least 300 ce, was looted by Italian troops in 1937. "
+"Returned to Ethiopia by the Italian government in 2005, it was reerected in Aksum in time for the celebration"
+" of Ethiopia’s millennium year in 2008 (which was 2000 by the Coptic calendar). At least 27 carved stone "
+"thrones have been unearthed in the overgrown ruins of the ancient palace.";
+}
+void gondINFO(){
+cout<<"         Gonder was the capital of Ethiopia from 1632 to 1855, and it has the remains of castles "
+"and palaces constructed by a series of emperors from Fasilides (reigned 1632–67) to Iyasu II (1730–55). "
+"The ruins of these structures stand within a walled imperial enclosure. The most important buildings are "
+"the castle of Fasilides and the palace of Iyasu the Great (reigned 1682–1706). The architectural style of "
+"these stone buildings displays a prominent Portuguese influence, along with connections to the Aksumite "
+"empire’s palaces and the mosques of South Arabia. Only a few of the 44 churches reputed to have existed in "
+"Gonder in the 18th century survive, but the city is still an important centre of the Ethiopian Orthodox church;"
+" its beautifully decorated 17th-century Debre Berhan Selassie Church is still in use. Gonder suffered greatly "
+"during the period of the civil wars (1750–1890) in Ethiopia, but, after the British conquest of the Sudan (1899),"
+" the town resumed its trade with the Blue Nile region. The city’s inhabitants are mainly Christians, but "
+"some Muslims live in the locality.";
 }
 void BahiINFO()
 {
@@ -803,14 +1494,14 @@ void  ticketRESofB()
              		cin>>bahir[0].date1.retmm;
              		cout<<"enter your tour returning tour year: \n";
              		cin>>bahir[0].date1.retyy;
-			bahir[i].date1.DATEchecker=checkDATE(bahir[i].date1.depDay,bahir[i].date1.depmm,bahir[i].date1.depyy);
-             		bahir[i].date1.DATEcheckerRE=checkDATE(bahir[i].date1.retday,bahir[i].date1.retmm,bahir[i].date1.retyy);
+			bahir[0].date1.DATEchecker=checkDATE(bahir[0].date1.depDay,bahir[0].date1.depmm,bahir[0].date1.depyy);
+             		bahir[0].date1.DATEcheckerRE=checkDATE(bahir[0].date1.retday,bahir[0].date1.retmm,bahir[0].date1.retyy);
              		if(bahir[i].date1.DATEchecker==0){
                            cout<<"you entered invalid value\nplease try again:\n";
                            goto DEpcheck1;}
                         else
                           goto Below;
-                       if(bahir[i].date1.DATEcheckerRE==0){
+                       if(bahir[0].date1.DATEcheckerRE==0){
                            cout<<"you entered invalid value\nplease try again:\n";
                            goto retcheck1;}
                        else
